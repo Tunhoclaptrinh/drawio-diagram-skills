@@ -1,6 +1,7 @@
 # drawio-diagram-skills
 
 [![Skills CI](https://github.com/Tunhoclaptrinh/drawio-diagram-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/Tunhoclaptrinh/drawio-diagram-skills/actions/workflows/ci.yml)
+[![Pages](https://github.com/Tunhoclaptrinh/drawio-diagram-skills/actions/workflows/pages.yml/badge.svg)](https://tunhoclaptrinh.github.io/drawio-diagram-skills/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 **English** · [Tiếng Việt](README.vi.md)
@@ -32,6 +33,7 @@ Checks are selective. They are not a full BPMN validator, an execution engine or
 
 | Document | Contents |
 |---|---|
+| [Interactive Web Documentation](https://tunhoclaptrinh.github.io/drawio-diagram-skills/) | Visual documentation portal, interactive OMG rules matrix, layout diagnostics, and diagram showcases |
 | [User guide](docs/user-guide.md) (Vietnamese) | Installation, prompts for agents, running the tools, reading audit reports, layout findings with pictures, themes, troubleshooting |
 | [Examples](examples/README.md) | 9 example sets: `.drawio` in two variants, PNG/SVG, explanations |
 | [bpmn-drawio README](skills/bpmn-drawio/README.md) · [SKILL.md](skills/bpmn-drawio/SKILL.md) | Design principles, components, sources; agent entry point |

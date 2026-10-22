@@ -1,0 +1,1178 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="drawio-diagram-skills: Bộ công cụ và Skill AI Agent mô hình hóa BPMN 2.0.2 chuyên nghiệp trên draw.io. Hướng dẫn sử dụng, quy tắc chuẩn OMG, chẩn đoán bố cục và thư viện ví dụ trực quan.">
+  <title>drawio-diagram-skills · Hướng dẫn BPMN &amp; Tài liệu trực quan</title>
+  <style>
+    :root {
+      --primary: #0f2338;
+      --primary-light: #18385c;
+      --accent: #175a91;
+      --accent-hover: #0f4068;
+      --bg: #f5f8fb;
+      --surface: #ffffff;
+      --line: #d2dee9;
+      --line-subtle: #e9eff5;
+      --text: #172b42;
+      --muted: #546a82;
+      --success-bg: #dcfce7;
+      --success-text: #166534;
+      --danger-bg: #fee2e2;
+      --danger-text: #991b1b;
+      --warning-bg: #fef3c7;
+      --warning-text: #92400e;
+      --info-bg: #e0f2fe;
+      --info-text: #075985;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 1px 3px rgba(15,35,56,0.06);
+      --shadow-md: 0 4px 12px rgba(15,35,56,0.08);
+      --shadow-lg: 0 12px 28px rgba(15,35,56,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      scroll-behavior: smooth;
+    }
+    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.9em;
+      background: #eef3f8;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #0b3d63;
+    }
+    pre {
+      background: #0f2338;
+      color: #e2e8f0;
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      overflow-x: auto;
+      font-family: ui-monospace, monospace;
+      font-size: 0.88em;
+      line-height: 1.5;
+      margin: 12px 0;
+    }
+    pre code { background: none; color: inherit; padding: 0; }
+
+    /* Header & Hero */
+    header.hero {
+      background: linear-gradient(135deg, #0b1a2b 0%, #132d46 60%, #1b3d5e 100%);
+      color: #ffffff;
+      padding: 48px 24px 40px;
+      border-bottom: 3px solid #1f6fb2;
+    }
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      color: #f1f5f9;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .badge-release { background: #166534; border-color: #22c55e; color: #dcfce7; }
+    .badge-spec { background: #075985; border-color: #38bdf8; color: #e0f2fe; }
+    h1.hero-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+    p.hero-subtitle {
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      color: #cbd5e1;
+      max-width: 860px;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      border: none;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: #175a91;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+    .btn-primary:hover {
+      background: #1f6fb2;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.2);
+      text-decoration: none;
+    }
+
+    /* Sticky Navbar */
+    nav.top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      padding: 0 20px;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 12px 0;
+      scrollbar-width: thin;
+    }
+    .nav-container a {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 4px 6px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .nav-container a:hover, .nav-container a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Main Container */
+    main.content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 36px 20px 80px;
+    }
+    section.card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+      scroll-margin-top: 80px;
+    }
+    h2.section-title {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--line-subtle);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h3.sub-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      margin: 22px 0 10px;
+    }
+    p { margin-bottom: 14px; }
+
+    /* Alert callouts */
+    .callout {
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      margin: 18px 0;
+      border-left: 4px solid;
+    }
+    .callout-info {
+      background: var(--info-bg);
+      border-color: #0284c7;
+      color: #0c4a6e;
+    }
+    .callout-success {
+      background: var(--success-bg);
+      border-color: #16a34a;
+      color: #14532d;
+    }
+    .callout-warning {
+      background: var(--warning-bg);
+      border-color: #d97706;
+      color: #78350f;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin: 18px 0;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin: 18px 0;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .feature-box {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+    }
+    .feature-box h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 18px 0 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+    thead th {
+      background: #edf3f8;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    tbody td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--line-subtle);
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: #f8fbfe; }
+
+    /* Tags / Chips */
+    .tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin: 2px 4px 2px 0;
+    }
+    .tag-ok { background: var(--success-bg); color: var(--success-text); }
+    .tag-err { background: var(--danger-bg); color: var(--danger-text); }
+    .tag-warn { background: var(--warning-bg); color: var(--warning-text); }
+    .tag-neutral { background: #e2e8f0; color: #334155; }
+
+    /* Visual Case Card */
+    .case-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .case-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .case-header {
+      padding: 14px 16px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .case-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+    .case-img-wrap {
+      background: #ffffff;
+      padding: 12px;
+      text-align: center;
+      cursor: zoom-in;
+      position: relative;
+      border-bottom: 1px solid var(--line-subtle);
+    }
+    .case-img-wrap img {
+      width: 100%;
+      height: auto;
+      max-height: 240px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      border-radius: 4px;
+    }
+    .case-body {
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      flex-grow: 1;
+    }
+    .case-body strong { color: var(--text); }
+
+    /* Interactive Copy Box */
+    .prompt-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #f8fafc;
+      margin: 14px 0;
+      overflow: hidden;
+    }
+    .prompt-header {
+      padding: 10px 16px;
+      background: #edf3f8;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--primary);
+    }
+    .copy-btn {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .copy-btn:hover { background: #eef4f9; }
+    .prompt-text {
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    /* Modal Image Zoom Dialog */
+    dialog#zoom-dialog {
+      width: 95vw;
+      max-width: 1400px;
+      height: 92vh;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow-lg);
+      background: #ffffff;
+      margin: auto;
+    }
+    dialog#zoom-dialog::backdrop {
+      background: rgba(15, 35, 56, 0.75);
+      backdrop-filter: blur(4px);
+    }
+    .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .dialog-title { font-weight: 700; color: var(--primary); font-size: 1.1rem; }
+    .dialog-tools { display: flex; gap: 8px; }
+    .dialog-body {
+      height: calc(100% - 50px);
+      overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f1f5f9;
+      padding: 20px;
+      border-radius: var(--radius-sm);
+      margin-top: 10px;
+    }
+    #zoomed-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+      cursor: grab;
+      border-radius: 4px;
+      background: #ffffff;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Filter Box */
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      margin: 16px 0;
+      flex-wrap: wrap;
+    }
+    .filter-input {
+      flex: 1;
+      min-width: 260px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      outline: none;
+    }
+    .filter-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(23,90,145,0.15); }
+
+    /* Swatches for Palette */
+    .swatch {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      vertical-align: middle;
+      margin-right: 6px;
+      border: 1px solid rgba(0,0,0,0.15);
+    }
+
+    /* Footer */
+    footer.site-footer {
+      background: #0b1a2b;
+      color: #94a3b8;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      border-top: 1px solid #1e3a5f;
+      text-align: center;
+    }
+    footer.site-footer a { color: #38bdf8; }
+    footer.site-footer p { margin-bottom: 8px; }
+
+    @media (max-width: 768px) {
+      section.card { padding: 20px 16px; }
+      h1.hero-title { font-size: 1.8rem; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    }
+    @media print {
+      nav.top-nav, .hero-actions, .copy-btn, .filter-bar, dialog { display: none !important; }
+      header.hero { background: none; color: #000; padding: 0 0 20px; border-bottom: 2px solid #000; }
+      section.card { border: none; box-shadow: none; padding: 10px 0; page-break-inside: avoid; }
+      body { background: #fff; color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-container">
+      <div class="badge-bar">
+        <span class="badge badge-release">Release v1.0.0-rc.2</span>
+        <span class="badge badge-spec">Normative: OMG BPMN 2.0.2</span>
+        <span class="badge">Apache-2.0 License</span>
+        <span class="badge">Engine: draw.io 17b367b</span>
+      </div>
+      <h1 class="hero-title">drawio-diagram-skills</h1>
+      <p class="hero-subtitle">
+        Bộ công cụ &amp; Skill AI Agent mô hình hóa BPMN 2.0.2 chuyên nghiệp trên draw.io.
+        Thiết kế theo 4 tầng chất lượng: <strong>Nghiệp vụ thực tế &rarr; Ký pháp chuẩn OMG &rarr; Bố cục hình học thật &rarr; Hệ màu tương phản cao</strong>.
+      </p>
+      <div class="hero-actions">
+        <a href="https://github.com/Tunhoclaptrinh/drawio-diagram-skills" class="btn btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          Mã nguồn trên GitHub
+        </a>
+        <a href="https://github.com/Tunhoclaptrinh/drawio-diagram-skills/releases/tag/bpmn-drawio-v1.0.0-rc.2" class="btn btn-secondary" target="_blank" rel="noopener">
+          Tải ZIP Phát hành (rc.2)
+        </a>
+        <a href="user-guide.html" class="btn btn-secondary" style="display:none;" id="guide-link">Hướng dẫn chi tiết</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- STICKY TOP NAV -->
+  <nav class="top-nav" aria-label="Mục lục hướng dẫn">
+    <div class="nav-container">
+      <a href="#triet-ly">1. Triết lý &amp; Phạm vi</a>
+      <a href="#cai-dat">2. Cài đặt &amp; Prompt Agent</a>
+      <a href="#cli">3. Bộ công cụ CLI</a>
+      <a href="#quy-tac-omg">4. Tra cứu chuẩn OMG</a>
+      <a href="#chan-doan-bo-cuc">5. Chẩn đoán bố cục hình học</a>
+      <a href="#he-mau">6. Hệ màu &amp; Palette</a>
+      <a href="#thu-vien-vi-du">7. Thư viện ví dụ</a>
+      <a href="#su-co">8. Khắc phục sự cố &amp; FAQ</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- 1. TRIẾT LÝ & PHẠM VI -->
+    <section id="triet-ly" class="card">
+      <h2 class="section-title">
+        <span>1. Triết lý mô hình hóa &amp; Phạm vi hoạt động</span>
+      </h2>
+      <p>
+        <strong>bpmn-drawio</strong> là skill chuyên dụng giúp AI agent (như Claude Code, Google Antigravity, Roo-Cline, Cursor...)
+        phân tích yêu cầu nghiệp vụ, dựng sơ đồ BPMN chuẩn xác trên draw.io và tự động chạy bộ rà soát 4 lớp.
+      </p>
+
+      <div class="grid-4">
+        <div class="feature-box">
+          <h4>1. Nghiệp vụ đúng</h4>
+          <p class="muted">Tách bạch dữ kiện đề bài với giả định suy diễn. Ghi rõ điều kiện rẽ nhánh, người chịu trách nhiệm và kết quả sau cùng.</p>
+        </div>
+        <div class="feature-box">
+          <h4>2. Ký pháp chuẩn OMG</h4>
+          <p class="muted">Tuân thủ nghiêm ngặt chuẩn OMG BPMN 2.0.2 (tables 10.84–10.93): đúng loại event, hướng luồng thông điệp, boundary timers.</p>
+        </div>
+        <div class="feature-box">
+          <h4>3. Bố cục hình học thật</h4>
+          <p class="muted">Dùng renderer chính thống của draw.io để đo tọa độ thực tế: không tràn chữ, không đè marker, không chồng đường connector.</p>
+        </div>
+        <div class="feature-box">
+          <h4>4. Màu sắc tương phản</h4>
+          <p class="muted">Màu là lớp trình bày tăng tính trực quan. Màu không làm thay đổi ngữ nghĩa ký pháp và bảo đảm chuẩn tương phản WCAG.</p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 24px;">
+        <div style="background:#f1fbf5; border:1px solid #bbf7d0; border-radius:var(--radius-sm); padding:20px;">
+          <h4 style="color:#166534; margin-bottom:10px;">Những gì Skill thực hiện xuất sắc</h4>
+          <ul style="padding-left: 20px; font-size: 0.92rem; color: #14532d; line-height: 1.7;">
+            <li>Lập bảng phân tích yêu cầu, tách dữ kiện thực tế và giả định logic.</li>
+            <li>Dựng sơ đồ bằng các hình BPMN gốc của thư viện draw.io.</li>
+            <li>Xuất đồng thời 2 bản: bản thường (monochrome) và bản màu (bizagi-inspired) với cùng mô hình hình học 100%.</li>
+            <li>Dựng ảnh PNG/SVG/PDF bằng Chrome headless và mã nguồn viewer draw.io chính gốc.</li>
+            <li>Chạy bộ kiểm tra cấu trúc XML, quy tắc BPMN, tương phản màu và va chạm bố cục (Auditor).</li>
+          </ul>
+        </div>
+        <div style="background:#fff9e8; border:1px solid #fde68a; border-radius:var(--radius-sm); padding:20px;">
+          <h4 style="color:#92400e; margin-bottom:10px;">Phạm vi giới hạn &amp; Không hỗ trợ</h4>
+          <ul style="padding-left: 20px; font-size: 0.92rem; color: #78350f; line-height: 1.7;">
+            <li><strong>Không tự phong chứng nhận OMG:</strong> Đạt kiểm tra tự động chỉ có nghĩa là không vi phạm các luật mà script biết tìm.</li>
+            <li><strong>Không phải engine thực thi:</strong> Không chạy mô phỏng token runtime như Camunda/Activiti XML.</li>
+            <li><strong>Chưa hỗ trợ biểu đồ nâng cao:</strong> Choreography, Conversation và tự động dàn trang 100% (auto-layout) chưa được hỗ trợ.</li>
+            <li><strong>Không thay thế con người:</strong> Phê duyệt nghiệp vụ cuối cùng luôn cần chuyên viên phân tích (BA) xem xét.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. CÀI ĐẶT & PROMPT AGENT -->
+    <section id="cai-dat" class="card">
+      <h2 class="section-title">
+        <span>2. Cài đặt &amp; Hướng dẫn tương tác với AI Agent</span>
+      </h2>
+      <p>
+        Skill tương thích với mọi trợ lý lập trình đọc định dạng <code>SKILL.md</code>.
+        Dưới đây là 3 bước cài đặt đơn giản:
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">Bước</th>
+              <th>Hành động &amp; Lệnh thực thi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Tải Release candidate</strong></td>
+              <td>
+                Tải <code>bpmn-drawio-1.0.0-rc.2-candidate.zip</code> từ mục Releases và kiểm tra mã SHA-256 đối chiếu:
+                <pre><code>sha256sum -c bpmn-drawio-1.0.0-rc.2-candidate.zip.sha256</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>2. Cài đặt vào Agent</strong></td>
+              <td>
+                Giải nén thư mục <code>bpmn-drawio/</code> vào nơi lưu trữ skill của agent:<br>
+                &bull; Với Claude Code toàn cục: <code>~/.claude/skills/bpmn-drawio/</code><br>
+                &bull; Với dự án đơn lẻ: <code>.claude/skills/bpmn-drawio/</code> hoặc thư mục skill của IDE.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>3. Chuẩn bị draw.io viewer</strong></td>
+              <td>
+                Clone mã nguồn draw.io ở commit đã được kiểm chứng để phục vụ việc xuất ảnh trung thực:
+                <pre><code>git clone --filter=blob:none https://github.com/jgraph/drawio.git drawio
+git -C drawio checkout 17b367b91dbab91804f852645788d7ffb46dcb79</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-title">Câu lệnh mẫu (Prompts) cho AI Agent</h3>
+      <p>Sao chép các mẫu câu lệnh dưới đây để ra lệnh cho trợ lý AI đạt hiệu quả tối ưu:</p>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <span>Kịch bản 1: Mô hình hóa đề bài / quy trình mới từ mô tả</span>
+          <button class="copy-btn" onclick="copyPrompt('prompt1')">Sao chép prompt</button>
+        </div>
+        <div class="prompt-text" id="prompt1">
+          "Đọc đề bài trong de-bai/quy-trinh-bao-hanh.pdf, lập bảng phân tích yêu cầu nghiệp vụ và vẽ sơ đồ BPMN bằng draw.io vào thư mục bai-lam/. Mã nguồn draw.io ở ~/tools/drawio. Yêu cầu bàn giao cả hai phiên bản: bản thường (monochrome) và bản màu (bizagi-inspired), xuất ảnh PNG/SVG, chạy audit kiểm tra bố cục và viết tài liệu giải thích chi tiết."
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <span>Kịch bản 2: Bổ sung nhánh xử lý ngoại lệ hoặc Boundary Timer</span>
+          <button class="copy-btn" onclick="copyPrompt('prompt2')">Sao chép prompt</button>
+        </div>
+        <div class="prompt-text" id="prompt2">
+          "Trong file quy-trinh.drawio, hãy thêm nhánh ngoại lệ: nếu sau 48 giờ đối tác không phản hồi báo giá thì tự động hủy yêu cầu và gửi email thông báo cho quản lý. Hãy giữ nguyên bố cục các nhánh còn lại, xuất lại bản màu tương ứng và chạy auditor kiểm tra va chạm nhãn."
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <span>Kịch bản 3: Chỉ rà soát độc lập theo chuẩn OMG BPMN 2.0.2 (Không sửa file)</span>
+          <button class="copy-btn" onclick="copyPrompt('prompt3')">Sao chép prompt</button>
+        </div>
+        <div class="prompt-text" id="prompt3">
+          "Hãy rà soát file bai-lam/BPMN.drawio dựa trên chuẩn OMG BPMN 2.0.2 và tài liệu nghiệp vụ đi kèm. Chỉ lập báo cáo chỉ rõ các điểm sai ký pháp, lỗi bố cục đè chữ hoặc mâu thuẫn logic; đề xuất hướng khắc phục cụ thể mà không tự ý sửa file."
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. BỘ CÔNG CỤ CLI -->
+    <section id="cli" class="card">
+      <h2 class="section-title">
+        <span>3. Bộ công cụ dòng lệnh (CLI Tools &amp; Automation)</span>
+      </h2>
+      <p>
+        Mọi script đều nằm trong thư mục <code>skills/bpmn-drawio/scripts/</code>, viết bằng Python thuần và không cần thư viện ngoài (zero external pip dependencies).
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Script</th>
+              <th>Chức năng chính</th>
+              <th>Ví dụ dòng lệnh</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>doctor.py</code></td>
+              <td>Kiểm tra môi trường hệ thống: Python 3.10+, Chrome headless, viewer draw.io, font tiếng Việt</td>
+              <td><code>python3 doctor.py --drawio-root /path/to/drawio --output-dir /tmp/test</code></td>
+            </tr>
+            <tr>
+              <td><code>create_demo.py</code></td>
+              <td>Tạo bộ sơ đồ demo mẫu hoàn chỉnh (bản thường, bản màu, tài liệu Markdown)</td>
+              <td><code>python3 create_demo.py --output-dir output/demo</code></td>
+            </tr>
+            <tr>
+              <td><code>colorize_drawio.py</code></td>
+              <td>Chuyển đổi phối màu giữa <code>monochrome</code> và <code>bizagi-inspired</code> giữ nguyên 100% hình học</td>
+              <td><code>python3 colorize_drawio.py nguon.drawio mau.drawio --theme bizagi-inspired</code></td>
+            </tr>
+            <tr>
+              <td><code>render_drawio.py</code></td>
+              <td>Dựng ảnh vector SVG và raster PNG (kèm PDF) bằng renderer chính thống của draw.io</td>
+              <td><code>python3 render_drawio.py diagram.drawio --drawio-root /path/to/drawio --output-dir render/</code></td>
+            </tr>
+            <tr>
+              <td><code>audit_drawio.py</code></td>
+              <td>Kiểm tra toàn diện cấu trúc XML, chuẩn OMG BPMN 2.0.2, tương phản màu và va chạm bố cục</td>
+              <td><code>python3 audit_drawio.py diagram.drawio --compare mau.drawio --render-dir render/ --report audit.json</code></td>
+            </tr>
+            <tr>
+              <td><code>smoke_package.py</code></td>
+              <td>Kiểm thử độc lập gói ZIP phát hành (giải nén, chạy doctor, tạo demo, audit)</td>
+              <td><code>python3 smoke_package.py bpmn-drawio-candidate.zip --report smoke.json</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-info">
+        <strong>Giải mã cờ trong file báo cáo JSON (Audit Report):</strong>
+        <p style="margin-top:6px; font-size:0.9rem;">
+          Khi chạy <code>audit_drawio.py</code>, bạn sẽ nhận được một file JSON chứa kết quả phân tích:
+          <code>structural_checks</code> (tính nguyên vẹn của file XML),
+          <code>bpmn_rules</code> (đúng quy tắc sự kiện và kết nối),
+          <code>layout_checks</code> (chẩn đoán tràn chữ và cắt nhau),
+          <code>only_color_differs: true</code> (xác nhận hai bản vẽ chỉ khác nhau về giá trị màu, hoàn toàn đồng nhất về cấu trúc).
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. TRA CỨU CHUẨN OMG BPMN 2.0.2 -->
+    <section id="quy-tac-omg" class="card">
+      <h2 class="section-title">
+        <span>4. Tra cứu ma trận ký pháp OMG BPMN 2.0.2</span>
+      </h2>
+      <p>
+        Bảng tra cứu chuẩn hóa theo đặc tả <strong>OMG BPMN 2.0.2</strong> (Tables 10.84 &ndash; 10.93 và Sections 10.5 &ndash; 10.6).
+      </p>
+
+      <div class="filter-bar">
+        <input type="text" id="ruleSearch" class="filter-input" placeholder="Gõ từ khóa để lọc quy tắc (vd: boundary, timer, message, xor, terminate, end)..." oninput="filterRules()">
+      </div>
+
+      <div class="table-container">
+        <table id="rulesTable">
+          <thead>
+            <tr>
+              <th>Vị trí cấu trúc</th>
+              <th>Các loại Marker hợp lệ theo chuẩn OMG</th>
+              <th>Đặc điểm hình ảnh nhận diện</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="rule-row">
+              <td><strong>Top-level Start Event</strong></td>
+              <td>None (không marker), Message, Timer, Conditional, Signal, Multiple, Parallel Multiple</td>
+              <td>Một vòng tròn viền đơn mảnh (1px). Không được có Sequence Flow đi vào.</td>
+            </tr>
+            <tr class="rule-row">
+              <td><strong>Subprocess Start (Embedded)</strong></td>
+              <td><strong>Chỉ duy nhất None Start</strong> (không marker)</td>
+              <td>Một vòng tròn viền đơn mảnh, không chứa biểu tượng bên trong.</td>
+            </tr>
+            <tr class="rule-row">
+              <td><strong>Event Sub-process Start (Ngắt)</strong></td>
+              <td>Message, Timer, Error, Escalation, Compensation, Conditional, Signal, Multiple, Parallel Multiple</td>
+              <td>Vòng tròn viền đơn nét liền. Luôn kích hoạt khi luồng cha đang chạy.</td>
+            </tr>
+            <tr class="rule-row">
+              <td><strong>Event Sub-process Start (Không ngắt)</strong></td>
+              <td>Message, Timer, Escalation, Conditional, Signal, Multiple, Parallel Multiple (Không có Error/Cancel)</td>
+              <td>Vòng tròn viền đơn <strong>nét đứt (dashed)</strong>. Không làm dừng tiến trình cha.</td>
+            </tr>
+            <tr class="rule-row">
+              <td><strong>Boundary Event (Ngắt luồng)</strong></td>
+              <td>Message, Timer, Escalation, Error, Cancel, Compensation, Conditional, Signal, Multiple, Parallel Multiple</td>
+              <td><strong>Hai vòng tròn đồng tâm nét liền (solid double ring)</strong> gắn trên viền Activity. Error và Cancel luôn luôn ngắt.</td>
+            </tr>
+            <tr class="rule-row">
+              <td><strong>Boundary Event (Không ngắt)</strong></td>
+              <td>Message, Timer, Escalation, Conditional, Signal, Multiple, Parallel Multiple</td>
+              <td><strong>Hai vòng tròn đồng tâm nét đứt (dashed double ring)</strong> gắn trên viền Activity. Tạo luồng chạy song song phụ.</td>
+            </tr>
+            <tr class="rule-row">
+              <td><strong>Intermediate Catching (Bắt sự kiện)</strong></td>
+              <td>Message, Timer, Conditional, Link, Signal, Multiple, Parallel Multiple</td>
+              <td>Hai vòng tròn đồng tâm. Marker biểu tượng <strong>rỗng (unfilled)</strong>.</td>
+            </tr>
+            <tr class="rule-row">
+              <td><strong>Intermediate Throwing (Ném sự kiện)</strong></td>
+              <td>None, Message, Escalation, Link, Compensation, Signal, Multiple</td>
+              <td>Hai vòng tròn đồng tâm. Marker biểu tượng <strong>tô đậm đặc (filled/dark)</strong>.</td>
+            </tr>
+            <tr class="rule-row">
+              <td><strong>End Event (Kết thúc)</strong></td>
+              <td>None, Message, Escalation, Error, Cancel, Compensation, Signal, Terminate, Multiple</td>
+              <td><strong>Một vòng tròn viền dày (thick ring)</strong>. Không có Sequence Flow đi ra. Không có Timer End hay Link End.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-warning">
+        <strong>3 Cái bẫy thường gặp trong các bài thi &amp; thực tế:</strong>
+        <ol style="padding-left: 20px; font-size: 0.92rem; margin-top: 6px; line-height: 1.6;">
+          <li><strong>Cancel End:</strong> Chỉ được dùng trong <em>Transaction Sub-Process</em> có cơ chế rollback bù trừ. Việc khách hàng "Hủy đơn" thông thường phải dùng End thông thường hoặc Message End, không được tự ý cắm Cancel End.</li>
+          <li><strong>Terminate End:</strong> Chỉ kết thúc toàn bộ các token bên trong <em>phạm vi tiến trình sở tại (scope)</em>, không phải nút bấm xóa sổ mọi Pool của đối tác.</li>
+          <li><strong>Message Flow qua Pool:</strong> Sequence Flow (mũi tên nét liền) tuyệt đối không được cắt ngang biên giới giữa 2 Pool độc lập; chỉ Message Flow (mũi tên nét đứt, đầu tròn rỗng &rarr; mũi tên hở) mới được nối giữa 2 Pool.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. CHẨN ĐOÁN BỐ CỤC HÌNH HỌC -->
+    <section id="chan-doan-bo-cuc" class="card">
+      <h2 class="section-title">
+        <span>5. Chẩn đoán bố cục hình học thực tế (Layout Diagnostics)</span>
+      </h2>
+      <p>
+        Khác với các công cụ kiểm tra văn bản thông thường, bộ Auditor của <strong>bpmn-drawio</strong>
+        sử dụng thông số hình học thực tế (tọa độ bounding box của nhãn chữ và tuyến đường polyline) do draw.io renderer tính toán.
+      </p>
+
+      <div class="grid-4" style="margin-top: 20px;">
+        <!-- Card 1 -->
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-title">Trang 1: Bố cục chuẩn (Sạch)</span>
+            <span class="tag tag-ok">PASSED</span>
+          </div>
+          <div class="case-img-wrap" onclick="openZoom('images/bpmn-drawio/01-layout-ok.png', 'Trang 1: Bố cục sạch - Đạt toàn bộ kiểm tra bố cục')">
+            <img src="images/bpmn-drawio/01-layout-ok.png" alt="Bố cục sạch đạt chuẩn">
+          </div>
+          <div class="case-body">
+            <strong>Không có phát hiện lỗi:</strong> Khoảng cách task &gt; 30px, nhãn chữ nằm gọn trong container, đường nối thẳng hàng không cắt chữ.
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-title">Trang 2: Chữ tràn hộp (Overflow)</span>
+            <span class="tag tag-err">VIOLATION</span>
+          </div>
+          <div class="case-img-wrap" onclick="openZoom('images/bpmn-drawio/02-label-overflow.png', 'Trang 2: Cố ý sai - Chữ tràn khỏi task đè lên viền và marker')">
+            <img src="images/bpmn-drawio/02-label-overflow.png" alt="Chữ tràn khỏi task">
+          </div>
+          <div class="case-body">
+            <strong>Lỗi tràn chữ:</strong> Nhãn nhiệm vụ quá dài làm chữ tràn qua viền hộp task, đè lên biểu tượng User Task marker phía góc trái.
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-title">Trang 3: Hai đường chồng nhau</span>
+            <span class="tag tag-err">VIOLATION</span>
+          </div>
+          <div class="case-img-wrap" onclick="openZoom('images/bpmn-drawio/03-joined-connectors.png', 'Trang 3: Cố ý sai - Hai đường không liên quan chạy chồng lên nhau')">
+            <img src="images/bpmn-drawio/03-joined-connectors.png" alt="Đường nối chạy chồng nhau">
+          </div>
+          <div class="case-body">
+            <strong>Lỗi chạy trùng tuyến:</strong> Hai connector độc lập đi qua cùng tọa độ, khiến người xem nhìn nhầm thành một nhánh nhập (Join) giả mạo.
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-title">Trang 4: Nhãn ra ngoài Lane</span>
+            <span class="tag tag-err">CRITICAL</span>
+          </div>
+          <div class="case-img-wrap" onclick="openZoom('images/bpmn-drawio/04-label-outside-lane.png', 'Trang 4: Cố ý sai - Nhãn End ra ngoài lane và bị lane bên dưới che mất')">
+            <img src="images/bpmn-drawio/04-label-outside-lane.png" alt="Nhãn ra ngoài lane bị che mất chữ">
+          </div>
+          <div class="case-body">
+            <strong>Lỗi bị che khuất:</strong> Nhãn của End Event nằm thò xuống Lane bên dưới, do Lane vẽ sau có nền trắng nên <em>chữ bị nuốt mất hoàn toàn</em>.
+          </div>
+        </div>
+      </div>
+      <p style="text-align: right; font-size: 0.85rem; color: var(--muted); margin-top: 8px;">
+        &bull; <em>Bấm vào bất kỳ ảnh nào ở trên để phóng to xem chi tiết ở độ phân giải gốc.</em>
+      </p>
+    </section>
+
+    <!-- 6. HỆ MÀU & PALETTE -->
+    <section id="he-mau" class="card">
+      <h2 class="section-title">
+        <span>6. Hệ màu &amp; Tiêu chuẩn tương phản (WCAG Accessibility)</span>
+      </h2>
+      <p>
+        Trong BPMN 2.0.2 (§7.5 và §12.1.1), màu sắc là thuộc tính mở rộng không bắt buộc (non-normative).
+        Mỗi bài làm theo chuẩn của skill luôn cung cấp hai phiên bản có cùng mô hình hình học:
+      </p>
+
+      <div class="grid-2">
+        <div class="feature-box">
+          <h4>Bản thường (monochrome)</h4>
+          <p class="muted">
+            Nền trắng tinh, đường nét xám đen (#334155), chữ đen rõ nét. Đây là bản tiêu chuẩn bắt buộc cho in ấn giáo trình, tài liệu thẩm định và bài nộp học thuật.
+          </p>
+        </div>
+        <div class="feature-box">
+          <h4>Bản màu (bizagi-inspired)</h4>
+          <p class="muted">
+            Phối màu chuẩn thị giác:
+            <br>&bull; <span class="swatch" style="background:#85C226;"></span><strong>Start Event:</strong> Xanh lá (#85C226)
+            <br>&bull; <span class="swatch" style="background:#E74C3C;"></span><strong>Mọi End Event:</strong> Đỏ (#E74C3C - kết thúc token, không có nghĩa thất bại)
+            <br>&bull; <span class="swatch" style="background:#FFF2CC; border-color:#d6b656;"></span><strong>Gateway &amp; Boundary Timer:</strong> Vàng cam
+            <br>&bull; <span class="swatch" style="background:#DAE8FC; border-color:#6c8ebf;"></span><strong>Activity / Tasks:</strong> Xanh lam dịu
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top:20px; text-align:center;">
+        <figure style="display:inline-block; max-width:900px; width:100%;">
+          <div class="case-img-wrap" onclick="openZoom('images/bpmn-drawio/demo-co-mau.png', 'Ví dụ quy trình đặt trước thiết bị - Phối màu chuẩn Bizagi-inspired')">
+            <img src="images/bpmn-drawio/demo-co-mau.png" alt="Demo có màu chuẩn">
+          </div>
+          <figcaption style="font-size:0.88rem; color:var(--muted); margin-top:8px;">
+            Sơ đồ mẫu quy trình "Đặt trước thiết bị" theo phối màu bizagi-inspired. Đảm bảo tỷ lệ tương phản chữ &ge; 4.5:1 và nét &ge; 3:1.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 7. THƯ VIỆN VÍ DỤ THỰC TẾ -->
+    <section id="thu-vien-vi-du" class="card">
+      <h2 class="section-title">
+        <span>7. Thư viện ví dụ thực tế (Diagram Showcase)</span>
+      </h2>
+      <p>
+        Kho 9 bộ ví dụ độc lập đi kèm trong repository giúp người dùng tra cứu các mô hình nghiệp vụ từ cơ bản đến phức tạp.
+      </p>
+
+      <div class="grid-3">
+        <!-- Showcase 1 -->
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-title">Đặt trước thiết bị (Equipment)</span>
+          </div>
+          <div class="case-img-wrap" onclick="openZoom('images/examples/equipment-reservation.png', 'Quy trình Đặt trước thiết bị - 2 Pool, Message Flows, Boundary Timer 48h')">
+            <img src="images/examples/equipment-reservation.png" alt="Đặt trước thiết bị">
+          </div>
+          <div class="case-body">
+            <strong>Đặc trưng:</strong> 2 Pool tương tác (Khách &amp; Điều phối viên), Message Start, Timer bắt ngoại lệ 48 giờ quá hạn, Exclusive Gateway.
+          </div>
+        </div>
+
+        <!-- Showcase 2 -->
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-title">Rà soát tài liệu (Doc Review)</span>
+          </div>
+          <div class="case-img-wrap" onclick="openZoom('images/examples/document-review.png', 'Quy trình Rà soát tài liệu - Subprocess, Non-interrupting Timer nhắc việc')">
+            <img src="images/examples/document-review.png" alt="Rà soát tài liệu">
+          </div>
+          <div class="case-body">
+            <strong>Đặc trưng:</strong> Vòng lặp phản hồi nhiều vòng, Boundary Timer không ngắt (nhắc việc định kỳ), Subprocess phê duyệt khép kín.
+          </div>
+        </div>
+
+        <!-- Showcase 3 -->
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-title">Mượn sách liên thư viện (ILL)</span>
+          </div>
+          <div class="case-img-wrap" onclick="openZoom('images/examples/interlibrary-loan.png', 'Quy trình Mượn sách liên thư viện - Phối hợp đa bên, Terminate End')">
+            <img src="images/examples/interlibrary-loan.png" alt="Mượn sách liên thư viện">
+          </div>
+          <div class="case-body">
+            <strong>Đặc trưng:</strong> Quy trình liên tổ chức (Độc giả, Thư viện gốc, Thư viện đối tác), điều kiện hòa hủy đơn và xử lý đền bù sách mất.
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub-title">10 Mẫu nâng cao có sẵn trong thư mục <code>examples/bpmn/advanced-patterns/</code></h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Tên mẫu quy trình</th>
+              <th>Mục tiêu kiểm chứng kỹ thuật</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>01</td><td>Duyệt đề nghị mua sắm thiết bị</td><td>XOR Data-based gateway phân luồng giữa các lane và vòng lặp chỉnh sửa</td></tr>
+            <tr><td>02</td><td>Tiếp nhận nhân sự mới</td><td>AND Parallel gateway chia nhánh song song (IT, Nhân sự, Thẻ) và đồng bộ kết quả</td></tr>
+            <tr><td>03</td><td>Phát hành tài liệu theo kênh chọn</td><td>Inclusive Gateway (OR) kích hoạt 1 hoặc nhiều nhánh đồng thời tùy điều kiện</td></tr>
+            <tr><td>04</td><td>Xin báo giá nhà cung cấp</td><td>Event-based Gateway cạnh tranh giữa sự kiện nhận thư phản hồi hoặc hết hạn 24h</td></tr>
+            <tr><td>05</td><td>Xử lý yêu cầu hỗ trợ khách hàng</td><td>Non-interrupting Boundary Timer gửi thông báo nhắc việc mà không ngắt luồng chính</td></tr>
+            <tr><td>06</td><td>Phát hành chứng từ tài chính</td><td>Error Boundary Event bắt lỗi nghiệp vụ tại biên và chuyển nhánh hoàn tác</td></tr>
+            <tr><td>07</td><td>Đặt lịch tư vấn trực tuyến</td><td>Event Sub-process nằm trong luồng cha lắng nghe tín hiệu hủy lịch đột xuất</td></tr>
+            <tr><td>08</td><td>Ghi danh hội thảo &amp; Khóa học</td><td>Transaction Sub-Process kèm cơ chế Cancel và Compensation bù trừ giao dịch</td></tr>
+            <tr><td>09</td><td>Kiểm tra bộ tệp hồ sơ dự thầu</td><td>Multi-Instance Activity xử lý lặp song song hoặc tuần tự theo danh sách phần tử</td></tr>
+            <tr><td>10</td><td>Rà soát đăng ký thành viên</td><td>Terminate End chỉ dừng phạm vi subprocess con mà không ảnh hưởng luồng cha</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 8. KHẮC PHỤC SỰ CỐ & FAQ -->
+    <section id="su-co" class="card">
+      <h2 class="section-title">
+        <span>8. Bảng tra cứu sự cố thường gặp (Troubleshooting &amp; FAQ)</span>
+      </h2>
+      <p>Các giải pháp nhanh khi gặp lỗi trong quá trình tự chạy công cụ hoặc dựng ảnh:</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 35%;">Thông báo lỗi / Triệu chứng</th>
+              <th>Nguyên nhân và cách xử lý nhanh</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Chrome/Chromium not found; supply --chrome PATH</code></td>
+              <td>Máy chưa cài Chrome hoặc đường dẫn không nằm trong <code>$PATH</code>. Cài đặt <code>google-chrome-stable</code> hoặc truyền cờ <code>--chrome /duong/dan/chrome</code>.</td>
+            </tr>
+            <tr>
+              <td><code>Missing official viewer: ...viewer-static.min.js</code></td>
+              <td>Đường dẫn <code>--drawio-root</code> chưa trỏ chính xác tới thư mục mã nguồn clone của jgraph/drawio.</td>
+            </tr>
+            <tr>
+              <td><code>Viewer digest differs from provenance manifest</code></td>
+              <td>Phiên bản draw.io khác với commit đã ghim. Kiểm tra commit bằng lệnh: <code>git -C drawio checkout 17b367b91dbab91804f852645788d7ffb46dcb79</code>.</td>
+            </tr>
+            <tr>
+              <td><code>Rendered evidence is stale for this input digest</code></td>
+              <td>File <code>.drawio</code> đã bị sửa sau thời điểm dựng ảnh. Hãy chạy lại lệnh render vào thư mục sạch.</td>
+            </tr>
+            <tr>
+              <td>Chữ tiếng Việt bị hiển thị ô vuông hoặc lỗi dấu</td>
+              <td>Thiếu font chữ tiêu chuẩn trên hệ điều hành Linux. Cài đặt font Arial hoặc Liberation Sans: <code>sudo apt-get install -y fonts-liberation</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL ZOOM DIALOG -->
+  <dialog id="zoom-dialog">
+    <div class="dialog-header">
+      <div class="dialog-title" id="zoom-title">Xem ảnh chi tiết</div>
+      <div class="dialog-tools">
+        <button class="copy-btn" onclick="zoomIn()">Phóng to (+)</button>
+        <button class="copy-btn" onclick="zoomOut()">Thu nhỏ (-)</button>
+        <button class="copy-btn" onclick="zoomReset()">Kích thước gốc</button>
+        <button class="copy-btn" style="color:#ef4444;" onclick="closeZoom()">Đóng (Esc)</button>
+      </div>
+    </div>
+    <div class="dialog-body" id="dialog-body">
+      <img id="zoomed-img" src="" alt="Ảnh phóng to">
+    </div>
+  </dialog>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p><strong>drawio-diagram-skills</strong> &middot; Tài liệu và mã nguồn phát hành theo giấy phép <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache-2.0</a>.</p>
+    <p>Được phát triển và duy trì bởi <a href="https://github.com/Tunhoclaptrinh" target="_blank" rel="noopener">Tunhoclaptrinh</a> &middot; Hỗ trợ các trợ lý AI Claude Code, Antigravity, Roo-Cline, Cursor.</p>
+    <p style="font-size:0.8rem; color:#64748b; margin-top:8px;">Chuẩn tham chiếu: OMG Business Process Model and Notation (BPMN) Version 2.0.2.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // Copy Prompt Function
+    function copyPrompt(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const text = el.innerText.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Đã sao chép câu lệnh vào bộ nhớ tạm!");
+      }).catch(err => {
+        console.error("Lỗi khi sao chép:", err);
+      });
+    }
+
+    // Modal Image Zoom
+    let currentZoom = 1.0;
+    const dialog = document.getElementById('zoom-dialog');
+    const zoomImg = document.getElementById('zoomed-img');
+    const zoomTitle = document.getElementById('zoom-title');
+
+    function openZoom(src, title) {
+      zoomImg.src = src;
+      zoomTitle.innerText = title || "Xem ảnh chi tiết";
+      currentZoom = 1.0;
+      zoomImg.style.transform = `scale(${currentZoom})`;
+      dialog.showModal();
+    }
+
+    function closeZoom() {
+      dialog.close();
+    }
+
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) closeZoom();
+    });
+
+    function zoomIn() {
+      currentZoom = Math.min(currentZoom + 0.25, 3.0);
+      zoomImg.style.transform = `scale(${currentZoom})`;
+    }
+
+    function zoomOut() {
+      currentZoom = Math.max(currentZoom - 0.25, 0.5);
+      zoomImg.style.transform = `scale(${currentZoom})`;
+    }
+
+    function zoomReset() {
+      currentZoom = 1.0;
+      zoomImg.style.transform = `scale(${currentZoom})`;
+    }
+
+    // Filter Rules Table
+    function filterRules() {
+      const input = document.getElementById('ruleSearch').value.toLowerCase();
+      const rows = document.querySelectorAll('.rule-row');
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(input) ? '' : 'none';
+      });
+    }
+
+    // Active Navigation Highlight on Scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section.card');
+      const navLinks = document.querySelectorAll('.nav-container a');
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.pageYOffset >= sectionTop) {
+          current = '#' + section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

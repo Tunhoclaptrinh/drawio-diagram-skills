@@ -1,5 +1,9 @@
 # drawio-diagram-skills
 
+[![Skills CI](https://github.com/Tunhoclaptrinh/drawio-diagram-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/Tunhoclaptrinh/drawio-diagram-skills/actions/workflows/ci.yml)
+[![Tài liệu trực quan](https://img.shields.io/badge/tài_liệu-GitHub_Pages-blue.svg)](https://tunhoclaptrinh.github.io/drawio-diagram-skills/)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 [English](README.md) · **Tiếng Việt**
 
 Bộ skill giúp AI agent (Claude Code và các agent đọc định dạng `SKILL.md`) **phân tích nghiệp vụ, vẽ và rà soát sơ đồ trong draw.io**: file `.drawio` chỉnh sửa được, ảnh PNG/SVG/PDF dựng bằng renderer thật của draw.io, và tài liệu giải thích. Thứ tự ưu tiên: đúng nghiệp vụ → đúng ký pháp → bố cục dễ đọc → màu sắc.
@@ -16,6 +20,7 @@ Mỗi skill nằm trong `skills/<tên>/`, có phiên bản, test và gói ZIP ri
 
 | Tài liệu | Nội dung |
 |---|---|
+| [Tài liệu trực quan (Web)](https://tunhoclaptrinh.github.io/drawio-diagram-skills/) | Cổng tài liệu trực quan trên GitHub Pages: tra cứu quy tắc OMG, chẩn đoán bố cục có ảnh, bảng màu và bộ demo |
 | [Hướng dẫn sử dụng](docs/user-guide.md) | Cài đặt, câu lệnh mẫu cho agent, tự chạy công cụ, đọc báo cáo kiểm tra, lỗi bố cục có ảnh, theme, sự cố thường gặp |
 | [Ví dụ](examples/README.md) | 9 bộ ví dụ: sơ đồ `.drawio` hai bản, ảnh PNG/SVG và giải thích nghiệp vụ |
 | [README skill bpmn-drawio](skills/bpmn-drawio/README.md) · [SKILL.md](skills/bpmn-drawio/SKILL.md) | Nguyên tắc thiết kế, thành phần, nguồn tham khảo; điểm vào cho agent |
