@@ -1,0 +1,110 @@
+{
+  "review_date": "2026-10-21",
+  "scope": "All ten diagrams in both presentation variants, actual draw.io PNG/SVG previews",
+  "sourceSha256": {
+    "bpmn-patterns.drawio": "88b8f7b08da72621144315350f0966c1a1cc65a3a4e1e953fe156ff1b8ba23aa",
+    "bpmn-patterns-color.drawio": "5f84e0ff2e4203119a7f21cb5b05b8da3473ee542d1f4937d17cadd1862db5a0"
+  },
+  "reviewed_pngs": [
+    {
+      "path": "bo-vi-du-bpmn/normal/01-01-duyet-de-nghi-mua-thiet-bi-xor-lane-vong-sua.png",
+      "sha256": "cb3af10c0e37458c2749d5d3498c0e568f2a939ccaec5865eeddf2a7afce69fc"
+    },
+    {
+      "path": "bo-vi-du-bpmn/normal/02-02-tiep-nhan-nhan-su-and-chia-va-dong-bo.png",
+      "sha256": "cac897b59d4e4cd1f80811fc1719b67926e212012e027ea5cd26fbf7315b1563"
+    },
+    {
+      "path": "bo-vi-du-bpmn/normal/03-03-phat-hanh-tai-lieu-theo-kenh-chon-inclusive.png",
+      "sha256": "389bed6b4c89dd2e2746fe45a26193f1bf7022c5084e64f7c9c26aa0edf70246"
+    },
+    {
+      "path": "bo-vi-du-bpmn/normal/04-04-xin-bao-gia-phan-hoi-hoac-het-1-ngay.png",
+      "sha256": "9831d88107be8a27f64feb87d15823d326b87bbadbb3d8fad00d1afbe8b551d7"
+    },
+    {
+      "path": "bo-vi-du-bpmn/normal/05-05-xu-ly-yeu-cau-ho-tro-nhac-viec-khong-ngat.png",
+      "sha256": "bfecba2adc4720be900e4dfbfa72b53ca3dec50e7fe55ab8e542a17f2563f3bb"
+    },
+    {
+      "path": "bo-vi-du-bpmn/normal/06-06-phat-hanh-chung-tu-bat-error-tai-bien.png",
+      "sha256": "6fee995e08e4b5827abd4de72688985bc42cf80898bcacabf7ea9fbb8e7516a4"
+    },
+    {
+      "path": "bo-vi-du-bpmn/normal/07-07-dat-lich-tu-van-event-sub-process-nhan-huy.png",
+      "sha256": "496dd3ebd46d9d37adbdff9e6e8246b41996a25f9541afd8634d0a30a1db7d6d"
+    },
+    {
+      "path": "bo-vi-du-bpmn/normal/08-08-ghi-danh-hoi-thao-transaction-cancel-compensation.png",
+      "sha256": "1086d7bb6916f75e3cb94a5fe3b89e484da8ea6cf696faf7c575102642f75226"
+    },
+    {
+      "path": "bo-vi-du-bpmn/normal/09-09-kiem-tra-bo-tep-multi-instance-tuan-tu-va-song-song.png",
+      "sha256": "5bb0c1b225977d37d4d566093ee5d566c7bc5edd61ce569e8398d48e46da1377"
+    },
+    {
+      "path": "bo-vi-du-bpmn/normal/10-10-ra-soat-dang-ky-terminate-chi-dung-scope-con.png",
+      "sha256": "731cb947fa4bb782ba31e6631522475fe32dff38c18441faaa89416d68972da2"
+    },
+    {
+      "path": "bo-vi-du-bpmn/color/01-01-duyet-de-nghi-mua-thiet-bi-xor-lane-vong-sua.png",
+      "sha256": "ecb29ee2af485b636d42ca011768c710a24ddc84a14c469925b037e106290a04"
+    },
+    {
+      "path": "bo-vi-du-bpmn/color/02-02-tiep-nhan-nhan-su-and-chia-va-dong-bo.png",
+      "sha256": "ab498946948f321e16e69bffffcda4e5ce3e9847fa7a3f1701f85b6f971ebbd8"
+    },
+    {
+      "path": "bo-vi-du-bpmn/color/03-03-phat-hanh-tai-lieu-theo-kenh-chon-inclusive.png",
+      "sha256": "483a9a64ffd9e2403ac1ff31cfb2bb67b9bd5138ddd6921a85a7bb7ab1b1293c"
+    },
+    {
+      "path": "bo-vi-du-bpmn/color/04-04-xin-bao-gia-phan-hoi-hoac-het-1-ngay.png",
+      "sha256": "c2e35956a69bd521d5ca974e535094bbc68915433a46a114de752aed73694e22"
+    },
+    {
+      "path": "bo-vi-du-bpmn/color/05-05-xu-ly-yeu-cau-ho-tro-nhac-viec-khong-ngat.png",
+      "sha256": "54b7d8bd05194f8cd355f7daf33270b632fb8036d1e3651376b6b69184a95d66"
+    },
+    {
+      "path": "bo-vi-du-bpmn/color/06-06-phat-hanh-chung-tu-bat-error-tai-bien.png",
+      "sha256": "b95d0cb86a4aa5fe00c8a31f7e260e25e274b531cbc602c044b8957c91e4e488"
+    },
+    {
+      "path": "bo-vi-du-bpmn/color/07-07-dat-lich-tu-van-event-sub-process-nhan-huy.png",
+      "sha256": "995c7022be18e711ef0a62311818088bb3b7fa0a2090fbfea68699c4c2bf83e9"
+    },
+    {
+      "path": "bo-vi-du-bpmn/color/08-08-ghi-danh-hoi-thao-transaction-cancel-compensation.png",
+      "sha256": "402f574a277d775f804b8b85a15c1d00042e8f0f8fca1e7623552822a9e3612e"
+    },
+    {
+      "path": "bo-vi-du-bpmn/color/09-09-kiem-tra-bo-tep-multi-instance-tuan-tu-va-song-song.png",
+      "sha256": "a5b8e0981d22bf1bdee3be2cb6216db443996d5412a81b2d6714e228a934f5ae"
+    },
+    {
+      "path": "bo-vi-du-bpmn/color/10-10-ra-soat-dang-ky-terminate-chi-dung-scope-con.png",
+      "sha256": "51ea2696bc00ba7a4dfc85f89bd470909012bc2f036569f0eebd2ddbbbcc40b1"
+    }
+  ],
+  "reviewed_dimensions": [
+    "Native event/task/gateway markers and line styles",
+    "Pool/lane and subprocess boundaries",
+    "Visible complete arrows and labels",
+    "Routing, no misleading shared control-flow segment",
+    "Normal/color presentation consistency"
+  ],
+  "corrections": [
+    "V01 rework enters a different task side from the outgoing control flow",
+    "Connector labels use readable non-wrapping text",
+    "V04 message label moved clear of pool border",
+    "V07 cancellation message routed clear of the normal sequence",
+    "V05/V06/V08 boundary labels moved beside outgoing routes",
+    "V08/V10 outer sequence routes aligned horizontally"
+  ],
+  "limits": [
+    "Manual inspection is not an execution-engine test",
+    "Corner geometry and unfamiliar constructs still require targeted review",
+    "Business walkthroughs and assumptions are documented in README.md; source requirements are synthetic"
+  ]
+}

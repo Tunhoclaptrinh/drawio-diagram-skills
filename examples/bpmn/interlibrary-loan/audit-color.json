@@ -1,0 +1,60 @@
+{
+  "source": "ra-soat-bpmn/skill-rc2/forward/lien-thu-vien/interlibrary-loan-color.drawio",
+  "sourceSha256": "b84a8b34446304473c1266b69ef435b1e5b058a7a459b6f2190b1c303388c23e",
+  "tool": {
+    "version": "1.0.0-rc.2",
+    "sha256": "dd63391f48493162f3d346f7282f1de98b142e3af66ba0e97195c1e378cd903c",
+    "files": 17
+  },
+  "page_count": 1,
+  "pages": [
+    {
+      "name": "Mượn sách liên thư viện",
+      "element_counts": {
+        "artifact": 2,
+        "text": 1,
+        "participant": 3,
+        "lane": 2,
+        "startEvent": 1,
+        "userTask": 2,
+        "dataStore": 1,
+        "exclusiveGateway": 2,
+        "sendTask": 6,
+        "endEvent": 5,
+        "intermediateEvent": 5,
+        "boundaryEvent": 2,
+        "eventBasedGateway": 1,
+        "manualTask": 2,
+        "sequenceFlow": 23,
+        "dataAssociation": 1,
+        "messageFlow": 9
+      },
+      "rendered": true,
+      "errors": [],
+      "palette_errors": [],
+      "manual_review": [
+        "D1: association/custom edge; verify the inferred relationship and endpoint semantics",
+        "EG: review gateway conditions/triggers and active-branch synchronization against OMG"
+      ],
+      "unsupported_elements": [],
+      "layout_issues": [],
+      "label_checks_completed": true
+    }
+  ],
+  "errors": [],
+  "palette": "bizagi-inspired",
+  "palette_errors": [],
+  "limits": [
+    "Business scenarios and requirement coverage require a human/model review",
+    "Not an exhaustive BPMN validator or execution-soundness proof",
+    "Label collisions and visual readability require inspecting every image",
+    "Palette checks enforce a selected local presentation convention, not BPMN standard colors"
+  ],
+  "only_color_differs": true,
+  "unsupported_elements": [],
+  "layout_issues": [],
+  "passed_structural_checks": true,
+  "passed_palette_checks": true,
+  "passed_all_requested_checks": true,
+  "rendered_checks_completed": true
+}

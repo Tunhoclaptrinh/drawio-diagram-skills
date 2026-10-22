@@ -1,72 +1,84 @@
 # drawio-diagram-skills
 
-Bộ skill giúp AI agent (Claude Code và các agent đọc định dạng `SKILL.md`) **phân tích nghiệp vụ, vẽ và rà soát sơ đồ trong draw.io**: file `.drawio` chỉnh sửa được, ảnh PNG/SVG/PDF dựng bằng renderer thật của draw.io, và tài liệu giải thích. Thứ tự ưu tiên: đúng nghiệp vụ → đúng ký pháp → bố cục dễ đọc → màu sắc.
+[![Skills CI](https://github.com/Tunhoclaptrinh/drawio-diagram-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/Tunhoclaptrinh/drawio-diagram-skills/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-*Agent skills for modelling and reviewing business diagrams in draw.io: editable sources, real draw.io renderings, notation/layout checks and a written explanation. Documentation is mainly in Vietnamese.*
+**English** · [Tiếng Việt](README.vi.md)
 
-## Các skill
+Agent skills that help an AI agent (Claude Code and other agents that read `SKILL.md`) **analyse a business process, model it and review it in draw.io**. The output is an editable `.drawio` file, PNG/SVG/PDF renderings produced by the real draw.io renderer, notation and layout checks, and a written explanation. Priorities: correct business logic → correct notation → readable layout → colour.
 
-| Skill | Loại sơ đồ | Phiên bản | Trạng thái |
+Most guides and examples are written in Vietnamese; the tooling, `SKILL.md` and the notation references are in English.
+
+## Skills
+
+| Skill | Diagram type | Version | Status |
 |---|---|---|---|
-| [bpmn-drawio](skills/bpmn-drawio/README.md) | BPMN 2.0.2 Process / Collaboration | `1.0.0-rc.2` | Pre-release để dùng thử và góp ý |
+| [bpmn-drawio](skills/bpmn-drawio/README.md) | BPMN 2.0.2 Process / Collaboration | `1.0.0-rc.2` | Pre-release for trial and feedback |
 
-Mỗi skill nằm trong `skills/<tên>/`, có phiên bản, test và gói ZIP riêng. Các loại sơ đồ khác (ví dụ UML, ERD, C4) là **hướng mở rộng chưa triển khai**; khi thêm sẽ theo cùng cấu trúc `skills/<loai>-drawio/`.
+Each skill lives in `skills/<name>/` with its own version, tests and ZIP package. Other diagram types (for example UML, ERD, C4) are **planned, not implemented**; they will follow the same `skills/<type>-drawio/` layout.
 
-## Tài liệu
+![BPMN example: interlibrary loan, colour variant](examples/bpmn/interlibrary-loan/color/interlibrary-loan.png)
 
-| Tài liệu | Nội dung |
+## What the BPMN skill checks
+
+- Event triggers/results by position (OMG BPMN 2.0.2 tables 10.84–10.93): top-level start, subprocess start, event-subprocess start, catch, throw, boundary, end.
+- Message flows by catch/throw direction; boundary events need an outgoing flow; Link pairs; gateways must split or merge; sequence flows stay inside one pool and scope.
+- The colour variant differs from the normal variant only in colour; hidden strokes/text and low-contrast markers are rejected.
+- Layout on rendered geometry: label overflow, labels leaving a lane, labels on a border, connectors crossing labels, overlapping connectors.
+
+Checks are selective. They are not a full BPMN validator, an execution engine or OMG certification, and passing them is not a business validation. See the [coverage matrix](skills/bpmn-drawio/references/coverage.md).
+
+## Documentation
+
+| Document | Contents |
 |---|---|
-| [Hướng dẫn sử dụng](docs/huong-dan-su-dung.md) | Cài đặt, câu lệnh mẫu cho agent, tự chạy công cụ, đọc báo cáo kiểm tra, lỗi bố cục có ảnh, theme, sự cố thường gặp |
-| [Ví dụ](examples/README.md) | Sơ đồ `.drawio` hai bản, ảnh PNG/SVG và giải thích nghiệp vụ |
-| [README skill bpmn-drawio](skills/bpmn-drawio/README.md) · [SKILL.md](skills/bpmn-drawio/SKILL.md) | Nguyên tắc thiết kế, thành phần, nguồn tham khảo; điểm vào cho agent |
-| [Quy tắc BPMN](skills/bpmn-drawio/references/bpmn-rules.md) · [Phạm vi hỗ trợ](skills/bpmn-drawio/references/coverage.md) | Ma trận event theo vị trí, kết nối; những gì được kiểm tự động và phải rà tay |
-| [Đóng góp](CONTRIBUTING.md) · [CHANGELOG](CHANGELOG.md) | Báo lỗi, thêm luật, thêm skill cho loại sơ đồ khác; lịch sử phiên bản |
+| [User guide](docs/user-guide.md) (Vietnamese) | Installation, prompts for agents, running the tools, reading audit reports, layout findings with pictures, themes, troubleshooting |
+| [Examples](examples/README.md) | 9 example sets: `.drawio` in two variants, PNG/SVG, explanations |
+| [bpmn-drawio README](skills/bpmn-drawio/README.md) · [SKILL.md](skills/bpmn-drawio/SKILL.md) | Design principles, components, sources; agent entry point |
+| [BPMN rules](skills/bpmn-drawio/references/bpmn-rules.md) · [Coverage](skills/bpmn-drawio/references/coverage.md) | Event matrix, connection rules; what is automated and what needs review |
+| [Contributing](CONTRIBUTING.md) · [Releasing](RELEASING.md) · [Changelog](CHANGELOG.md) | Bug reports, new rules and skills; release procedure; version history |
 
-Chuẩn BPMN được trích theo tên và liên kết tới bản công bố chính thức [OMG BPMN 2.0.2](https://www.omg.org/spec/BPMN/2.0.2/PDF); repo không đính kèm PDF của OMG.
+The BPMN standard is cited by name with a link to the official [OMG BPMN 2.0.2](https://www.omg.org/spec/BPMN/2.0.2/PDF) publication; the specification PDF is not redistributed here.
 
-![Ví dụ BPMN mượn sách liên thư viện, bản màu](examples/bpmn/muon-sach-lien-thu-vien/color/01-muon-sach-lien-thu-vien.png)
+## Install
 
-## Cài đặt
+1. Download `bpmn-drawio-<version>-candidate.zip` from **Releases**, verify it against the `.sha256` file and unzip it, keeping the `bpmn-drawio/` folder.
+2. Put the folder where your agent loads skills, for example with Claude Code: `~/.claude/skills/bpmn-drawio/` (all projects) or `.claude/skills/bpmn-drawio/` (one project).
+3. Check the package from the downloaded archive:
 
-1. Tải `bpmn-drawio-<phiên bản>-candidate.zip` ở mục **Releases**, đối chiếu SHA-256, giải nén giữ nguyên thư mục `bpmn-drawio/`.
-2. Đặt thư mục vào nơi agent đọc skill, ví dụ với Claude Code: `~/.claude/skills/bpmn-drawio/` (dùng cho mọi dự án) hoặc `.claude/skills/bpmn-drawio/` trong một dự án.
-3. Kiểm tra gói ngay từ bản vừa tải:
+   ```bash
+   python3 -B bpmn-drawio/scripts/smoke_package.py bpmn-drawio-1.0.0-rc.2-candidate.zip --report smoke.json
+   ```
 
-```bash
-python3 -B bpmn-drawio/scripts/smoke_package.py bpmn-drawio-1.0.0-rc.2-candidate.zip --report smoke.json
-```
+You can also clone this repository and copy `skills/bpmn-drawio/`.
 
-Hoặc clone repo và sao chép `skills/bpmn-drawio/`.
+## Requirements
 
-## Yêu cầu
+- Python 3.10+ (the core uses the standard library only).
+- Chrome or Chromium for rendering SVG/PNG/PDF.
+- A local draw.io source tree supplied by you (not bundled). Tested with commit `17b367b91dbab91804f852645788d7ffb46dcb79` (draw.io 32.5.5):
 
-- Python 3.10+ (chỉ thư viện chuẩn cho phần lõi).
-- Chrome/Chromium để dựng ảnh và PDF.
-- Mã nguồn draw.io do bạn tự cung cấp (không đóng kèm). Phiên bản đã thử: commit `17b367b91dbab91804f852645788d7ffb46dcb79` (draw.io 32.5.5):
+  ```bash
+  git clone --filter=blob:none https://github.com/jgraph/drawio.git
+  git -C drawio checkout 17b367b91dbab91804f852645788d7ffb46dcb79
+  python3 skills/bpmn-drawio/scripts/doctor.py --drawio-root drawio --output-dir output
+  ```
 
-```bash
-git clone --filter=blob:none https://github.com/jgraph/drawio.git
-git -C drawio checkout 17b367b91dbab91804f852645788d7ffb46dcb79
-python3 skills/bpmn-drawio/scripts/doctor.py --drawio-root drawio --output-dir output
-```
+Tested on Linux. Windows and macOS have not been verified.
 
-Đã thử trên Linux. Windows/macOS chưa được kiểm chứng.
-
-## Kiểm thử
+## Tests
 
 ```bash
 python3 -B skills/bpmn-drawio/scripts/run_checks.py
 python3 -B skills/bpmn-drawio/scripts/run_checks.py --render --drawio-root drawio --output-dir output/render --report output/render/checks.json
 ```
 
-CI ([workflow](.github/workflows/ci.yml)) chạy test nhanh trên Python 3.10/3.12/3.14, đóng gói và smoke test từ ZIP; job dựng ảnh chạy thủ công.
+CI ([workflow](.github/workflows/ci.yml)) runs the fast tests on Python 3.10, 3.12 and 3.14, packages the skill and smoke-tests the extracted ZIP; the rendering job runs on manual dispatch.
 
-## Giới hạn
+## Disclaimer
 
-Đây là bộ kiểm tra chọn lọc, không phải trình kiểm định toàn bộ chuẩn, BPMN engine hay chứng nhận OMG. Kết quả kiểm tra công cụ không thay xác nhận nghiệp vụ của người có chuyên môn. Xem [phạm vi hỗ trợ](skills/bpmn-drawio/references/coverage.md).
+Not affiliated with or endorsed by OMG, JGraph (draw.io) or Bizagi. The colour profile name `bizagi-inspired` only refers to a presentation style; it is not an official Bizagi palette.
 
-Không liên kết hoặc được bảo trợ bởi OMG, JGraph (draw.io) hay Bizagi. Tên profile màu `bizagi-inspired` chỉ là tham chiếu phong cách trình bày, không phải bảng màu chính thức.
+## License
 
-## Giấy phép
-
-[Apache-2.0](LICENSE). Copyright 2026 Tunhoclaptrinh — xem [NOTICE](NOTICE). Khi phân phối lại cần giữ LICENSE và NOTICE.
+[Apache-2.0](LICENSE). Copyright 2026 Tunhoclaptrinh — see [NOTICE](NOTICE). Keep LICENSE and NOTICE when redistributing.

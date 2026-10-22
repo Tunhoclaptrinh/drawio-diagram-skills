@@ -1,0 +1,333 @@
+{
+  "sourceSha256": "25c9cc0744871342dfbaccc53180fe6da7e50765f6da9c2a218b44ff09fdda9c",
+  "cells": 21,
+  "bounds": {
+    "x": 40,
+    "y": 25,
+    "width": 1370,
+    "height": 715.75
+  },
+  "missingShapes": [],
+  "vertices": [
+    {
+      "id": "TITLE",
+      "x": 40,
+      "y": 25,
+      "width": 1370,
+      "height": 50
+    },
+    {
+      "id": "CUSTOMER",
+      "x": 80,
+      "y": 110,
+      "width": 1280,
+      "height": 85
+    },
+    {
+      "id": "ORG",
+      "x": 80,
+      "y": 270,
+      "width": 1280,
+      "height": 470
+    },
+    {
+      "id": "FRONT",
+      "x": 128,
+      "y": 270,
+      "width": 1232,
+      "height": 225
+    },
+    {
+      "id": "S",
+      "x": 190,
+      "y": 355,
+      "width": 38,
+      "height": 38
+    },
+    {
+      "id": "CHECK",
+      "x": 310,
+      "y": 333,
+      "width": 220,
+      "height": 85
+    },
+    {
+      "id": "G",
+      "x": 650,
+      "y": 347,
+      "width": 54,
+      "height": 54
+    },
+    {
+      "id": "REJECT",
+      "x": 850,
+      "y": 333,
+      "width": 220,
+      "height": 85
+    },
+    {
+      "id": "E_NO",
+      "x": 1190,
+      "y": 355,
+      "width": 38,
+      "height": 38
+    },
+    {
+      "id": "STOCK",
+      "x": 128,
+      "y": 495,
+      "width": 1232,
+      "height": 245
+    },
+    {
+      "id": "RESERVE",
+      "x": 850,
+      "y": 565,
+      "width": 220,
+      "height": 85
+    },
+    {
+      "id": "E_OK",
+      "x": 1190,
+      "y": 587,
+      "width": 38,
+      "height": 38
+    }
+  ],
+  "edges": [
+    {
+      "id": "F1",
+      "points": [
+        {
+          "x": 228,
+          "y": 374
+        },
+        {
+          "x": 310,
+          "y": 375.5
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "points": [
+        {
+          "x": 530,
+          "y": 375.5
+        },
+        {
+          "x": 650,
+          "y": 374
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "points": [
+        {
+          "x": 704,
+          "y": 374
+        },
+        {
+          "x": 850,
+          "y": 375.5
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "points": [
+        {
+          "x": 1070,
+          "y": 375.5
+        },
+        {
+          "x": 1190,
+          "y": 374
+        }
+      ]
+    },
+    {
+      "id": "F6",
+      "points": [
+        {
+          "x": 1070,
+          "y": 607.5
+        },
+        {
+          "x": 1190,
+          "y": 606
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "points": [
+        {
+          "x": 677,
+          "y": 401
+        },
+        {
+          "x": 677,
+          "y": 607
+        },
+        {
+          "x": 850,
+          "y": 607.5
+        }
+      ]
+    },
+    {
+      "id": "M",
+      "points": [
+        {
+          "x": 207.99999999999875,
+          "y": 195
+        },
+        {
+          "x": 208,
+          "y": 235
+        },
+        {
+          "x": 209,
+          "y": 355
+        }
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "TITLE",
+      "text": "Đặt trước thiết bị dùng chung",
+      "x": 42,
+      "y": 35,
+      "width": 354,
+      "height": 30
+    },
+    {
+      "id": "CUSTOMER",
+      "text": "Người đăng ký",
+      "x": 87,
+      "y": 110.99999999999997,
+      "width": 34.00000000000001,
+      "height": 83
+    },
+    {
+      "id": "ORG",
+      "text": "Đơn vị quản lý thiết bị",
+      "x": 95.5,
+      "y": 431.49999999999994,
+      "width": 17.00000000000001,
+      "height": 147
+    },
+    {
+      "id": "FRONT",
+      "text": "TIẾP NHẬN",
+      "x": 137.5,
+      "y": 344.99999999999994,
+      "width": 17.000000000000004,
+      "height": 75
+    },
+    {
+      "id": "S",
+      "text": "Nhận yêu cầu",
+      "x": 172,
+      "y": 408,
+      "width": 74,
+      "height": 14
+    },
+    {
+      "id": "CHECK",
+      "text": "Kiểm tra số lượng\ncó thể cấp",
+      "x": 364,
+      "y": 362.5,
+      "width": 112,
+      "height": 34
+    },
+    {
+      "id": "G",
+      "text": "Còn đủ thiết bị?",
+      "x": 628,
+      "y": 317,
+      "width": 98,
+      "height": 17
+    },
+    {
+      "id": "REJECT",
+      "text": "Thông báo không đủ\nthiết bị",
+      "x": 896,
+      "y": 362.5,
+      "width": 128,
+      "height": 34
+    },
+    {
+      "id": "E_NO",
+      "text": "Không cấp được",
+      "x": 1164.5,
+      "y": 408,
+      "width": 89,
+      "height": 14
+    },
+    {
+      "id": "F3",
+      "text": "Không",
+      "x": 758,
+      "y": 354,
+      "width": 37,
+      "height": 14.75
+    },
+    {
+      "id": "STOCK",
+      "text": "KHO THIẾT BỊ",
+      "x": 137.5,
+      "y": 571,
+      "width": 17.000000000000007,
+      "height": 93
+    },
+    {
+      "id": "RESERVE",
+      "text": "Ghi nhận đặt trước\nvà giữ thiết bị",
+      "x": 901,
+      "y": 594.5,
+      "width": 118,
+      "height": 34
+    },
+    {
+      "id": "E_OK",
+      "text": "Đã giữ thiết bị",
+      "x": 1171.5,
+      "y": 640,
+      "width": 75,
+      "height": 14
+    },
+    {
+      "id": "F5",
+      "text": "Có",
+      "x": 668,
+      "y": 571,
+      "width": 18,
+      "height": 14
+    },
+    {
+      "id": "M",
+      "text": "Yêu cầu đặt trước",
+      "x": 159,
+      "y": 255,
+      "width": 99,
+      "height": 14
+    }
+  ],
+  "pageIndex": 1,
+  "pageId": "reservation",
+  "pageName": "Đặt trước thiết bị dùng chung",
+  "tool": {
+    "version": "1.0.0-rc.2",
+    "sha256": "dd63391f48493162f3d346f7282f1de98b142e3af66ba0e97195c1e378cd903c",
+    "files": 17
+  },
+  "drawioCommit": "17b367b91dbab91804f852645788d7ffb46dcb79",
+  "viewerSha256": "15777571ef7c042b2a4a6c6d29052f416fbaaaae5dcf868521c4a3a75f2147d8",
+  "textMode": "plain",
+  "flattenedLabels": [],
+  "svgSha256": "f1459fe434fabf31858fd01055140e1daeae9be7f8ef589be1444fed08727e7c"
+}

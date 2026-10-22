@@ -1,24 +1,26 @@
-# Ví dụ
+# Examples
 
-Tất cả ví dụ đều có bản `.drawio` thường và có màu (chỉ khác màu), ảnh PNG/SVG và tài liệu giải thích. Chuẩn tham chiếu: [OMG BPMN 2.0.2](https://www.omg.org/spec/BPMN/2.0.2/PDF) — trích theo tên, không đính kèm.
+Every example has a normal and a colour `.drawio` (same model, colour only), PNG/SVG renderings and a written explanation (Vietnamese). Notation reference: [OMG BPMN 2.0.2](https://www.omg.org/spec/BPMN/2.0.2/PDF), cited by name only.
 
-## Ví dụ tự đặt
+Mỗi ví dụ có hai bản `.drawio` (chỉ khác màu), ảnh PNG/SVG và tài liệu giải thích tiếng Việt.
 
-| Ví dụ | Nội dung |
+## Synthetic examples — Ví dụ tự đặt
+
+| Example | Covers |
 |---|---|
-| [Mượn sách liên thư viện](bpmn/muon-sach-lien-thu-vien/README.md) | Ba pool, event-based gateway, Link, boundary timer ngắt/không ngắt, nhãn tiếng Việt dài |
-| [Đặt trước thiết bị dùng chung](bpmn/dat-truoc-thiet-bi/README.md) | Ví dụ nhỏ do `create_demo.py` sinh: hai pool, hai lane, một XOR |
-| [Kiểm tra và thẩm định hồ sơ](bpmn/ho-so-hai-lane/README.md) | Một biểu đồ, hai lane, hai quyết định do task tạo trước gateway |
-| [Mười mẫu nâng cao](bpmn/10-mau-nang-cao/README.md) | XOR/AND/Inclusive, event race, boundary, event subprocess, transaction/compensation, multi-instance, terminate |
+| [Interlibrary loan — Mượn sách liên thư viện](bpmn/interlibrary-loan/README.md) | Three pools, event-based gateway, Link events, interrupting and non-interrupting boundary timers, long Vietnamese labels |
+| [Shared equipment reservation — Đặt trước thiết bị dùng chung](bpmn/equipment-reservation/README.md) | Small demo produced by `create_demo.py`: two pools, two lanes, one XOR |
+| [Document check and review — Kiểm tra và thẩm định hồ sơ](bpmn/document-review/README.md) | One diagram, two lanes; each decision is produced by a task before the gateway |
+| [Ten advanced patterns — Mười mẫu nâng cao](bpmn/advanced-patterns/README.md) | XOR/AND/inclusive, event race, boundary events, event subprocess, transaction/compensation, multi-instance, terminate |
 
-## Lời giải bài tập học phần
+## Coursework solutions — Lời giải bài tập học phần
 
-Lời giải tham khảo cho đề của học phần Phân tích nghiệp vụ phần mềm. Đề gốc chỉ được trích tên, không đính kèm. Không phải đáp án chính thức và chưa được giảng viên xác nhận; tên, mã sinh viên và bài nộp đã được lược bỏ. Đề 03 có ba lời giải độc lập để so sánh cách mô hình hóa.
+Reference solutions for exercises of a Software Business Analysis course (Phân tích nghiệp vụ phần mềm). The exercises are cited by name only and not included. These are **not** official answers and were not reviewed by the lecturer; student name, ID and submissions were removed. Exam 03 has three independent solutions for comparison.
 
-| Ví dụ | Nội dung |
+| Example | Covers |
 |---|---|
-| [Đề 01 — Quy trình mua sắm thiết bị nội bộ](bpmn/hoc-phan/de-01-mua-sam-thiet-bi/README.md) | Collaboration ba lane + nhà cung cấp black box, AND, timer 48 giờ |
-| [Đề 03 — Bảo hành thiết bị điện tử (bản Claude)](bpmn/hoc-phan/de-03-bao-hanh-thiet-bi/ban-claude/README.md) | Một trong ba lời giải độc lập của cùng đề |
-| [Đề 03 — Bảo hành thiết bị điện tử (bản GPT)](bpmn/hoc-phan/de-03-bao-hanh-thiet-bi/ban-gpt/README.md) | Một trong ba lời giải độc lập của cùng đề |
-| [Đề 03 — Bảo hành thiết bị điện tử (bản Gemini)](bpmn/hoc-phan/de-03-bao-hanh-thiet-bi/ban-gemini/README.md) | Một trong ba lời giải độc lập của cùng đề; có ảnh phóng to từng cụm |
-| [Thực hành — Ứng dụng gọi đồ ăn](bpmn/hoc-phan/thuc-hanh-goi-do-an/README.md) | Ba trang: tổng thể, tìm tài xế/hết hạn/hoàn tiền, chuẩn bị và giao món |
+| [Exam 01 — Internal equipment purchasing (Đề 01 — Mua sắm thiết bị nội bộ)](bpmn/coursework/exam-01-equipment-purchasing/README.md) | Collaboration: three lanes and a black-box supplier, AND, 48-hour timer |
+| [Exam 03 — Electronic device warranty, Claude solution (Đề 03 — Bảo hành thiết bị điện tử)](bpmn/coursework/exam-03-warranty-service/claude/README.md) | One of three independent solutions to the same exercise |
+| [Exam 03 — Electronic device warranty, GPT solution (Đề 03 — Bảo hành thiết bị điện tử)](bpmn/coursework/exam-03-warranty-service/gpt/README.md) | One of three independent solutions to the same exercise |
+| [Exam 03 — Electronic device warranty, Gemini solution (Đề 03 — Bảo hành thiết bị điện tử)](bpmn/coursework/exam-03-warranty-service/gemini/README.md) | One of three independent solutions; includes zoomed detail crops |
+| [Practice — Food ordering app (Thực hành — Ứng dụng gọi đồ ăn)](bpmn/coursework/practice-food-delivery/README.md) | Three pages: overview; driver search, expiry and refund; preparation and delivery |
