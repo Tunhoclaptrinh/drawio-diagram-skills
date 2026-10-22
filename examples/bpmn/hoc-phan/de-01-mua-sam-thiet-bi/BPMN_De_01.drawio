@@ -1,0 +1,504 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" pages="1">
+  <diagram id="DE01" name="ĐỀ 01 — QUY TRÌNH MUA SẮM THIẾT BỊ NỘI BỘ">
+    <mxGraphModel page="1" pageScale="1" pageWidth="2760" pageHeight="1570" grid="1" gridSize="10" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <object id="TITLE" label="ĐỀ 01 — QUY TRÌNH MUA SẮM THIẾT BỊ NỘI BỘ" bpmnType="text">
+          <mxCell vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=25;fontStyle=1;">
+            <mxGeometry x="40" y="25" width="2680" height="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="DN" label="DOANH NGHIỆP" bpmnType="participant" blackBox="false">
+          <mxCell vertex="1" parent="1" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;swimlane;horizontal=0;startSize=48;container=1;collapsible=0;recursiveResize=0;fontStyle=1;fillColor=#f1f5f9;swimlaneFillColor=#ffffff;">
+            <mxGeometry x="40" y="110" width="2640" height="1160" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="NV" label="NHÂN VIÊN" bpmnType="lane">
+          <mxCell vertex="1" parent="DN" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;swimlane;horizontal=0;startSize=48;container=1;collapsible=0;recursiveResize=0;fontStyle=1;fillColor=#f1f5f9;swimlaneFillColor=#ffffff;startSize=36;">
+            <mxGeometry x="48" y="0" width="2592" height="240" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="TP" label="TRƯỞNG PHÒNG" bpmnType="lane">
+          <mxCell vertex="1" parent="DN" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;swimlane;horizontal=0;startSize=48;container=1;collapsible=0;recursiveResize=0;fontStyle=1;fillColor=#f1f5f9;swimlaneFillColor=#ffffff;startSize=36;">
+            <mxGeometry x="48" y="240" width="2592" height="240" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="HC" label="HÀNH CHÍNH" bpmnType="lane">
+          <mxCell vertex="1" parent="DN" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;swimlane;horizontal=0;startSize=48;container=1;collapsible=0;recursiveResize=0;fontStyle=1;fillColor=#f1f5f9;swimlaneFillColor=#ffffff;startSize=36;">
+            <mxGeometry x="48" y="480" width="2592" height="680" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="NCC" label="NHÀ CUNG CẤP — participant bên ngoài (black box)" bpmnType="participant" blackBox="true">
+          <mxCell vertex="1" parent="1" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;swimlane;horizontal=0;startSize=48;container=1;collapsible=0;recursiveResize=0;fontStyle=1;fillColor=#f1f5f9;swimlaneFillColor=#ffffff;horizontal=1;startSize=70;align=center;verticalAlign=middle;fontSize=18;">
+            <mxGeometry x="40" y="1390" width="2640" height="70" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="S" label="Phát sinh nhu cầu" bpmnType="startEvent">
+          <mxCell vertex="1" parent="NV" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.event;perimeter=ellipsePerimeter;aspect=fixed;outlineConnect=0;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=145;fontSize=12;spacingTop=8;outline=standard;symbol=general;">
+            <mxGeometry x="72" y="110" width="38" height="38" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="N1" label="Lập và gửi yêu cầu mua sắm&#10;Tên thiết bị, SL, mục đích,&#10;chi phí dự kiến" bpmnType="task">
+          <mxCell vertex="1" parent="NV" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=abstract;">
+            <mxGeometry x="172" y="88" width="255" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="N2" label="Bổ sung thông tin&#10;yêu cầu mua sắm" bpmnType="task">
+          <mxCell vertex="1" parent="NV" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=abstract;">
+            <mxGeometry x="572" y="88" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="H1" label="Tiếp nhận và kiểm tra&#10;tính đầy đủ thông tin" bpmnType="task">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=abstract;">
+            <mxGeometry x="372" y="116" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="G1" label="Thông tin đầy đủ?" bpmnType="exclusiveGateway">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.gateway2;perimeter=rhombusPerimeter;verticalLabelPosition=top;verticalAlign=bottom;labelWidth=150;spacingBottom=10;gwType=exclusive;outline=none;symbol=none;">
+            <mxGeometry x="662" y="130" width="54" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="H2" label="Kiểm tra ngân sách&#10;còn lại của phòng ban" bpmnType="task">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=abstract;">
+            <mxGeometry x="812" y="116" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="G2" label="Ngân sách đủ?" bpmnType="exclusiveGateway">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.gateway2;perimeter=rhombusPerimeter;verticalLabelPosition=top;verticalAlign=bottom;labelWidth=150;spacingBottom=10;gwType=exclusive;outline=none;symbol=none;">
+            <mxGeometry x="1102" y="130" width="54" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="R1" label="Từ chối yêu cầu và&#10;thông báo nhân viên" bpmnType="task">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=abstract;">
+            <mxGeometry x="812" y="290" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="ER1" label="Từ chối: thiếu ngân sách" bpmnType="endEvent">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.event;perimeter=ellipsePerimeter;aspect=fixed;outlineConnect=0;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=145;fontSize=12;spacingTop=8;outline=end;symbol=general;">
+            <mxGeometry x="642" y="312" width="38" height="38" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="T1" label="Xem xét và quyết định&#10;phê duyệt yêu cầu" bpmnType="task">
+          <mxCell vertex="1" parent="TP" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=abstract;">
+            <mxGeometry x="1072" y="70" width="235" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="G3" label="Phê duyệt?" bpmnType="exclusiveGateway">
+          <mxCell vertex="1" parent="TP" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.gateway2;perimeter=rhombusPerimeter;verticalLabelPosition=top;verticalAlign=bottom;labelWidth=150;spacingBottom=10;gwType=exclusive;outline=none;symbol=none;">
+            <mxGeometry x="1392" y="84" width="54" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="ER2" label="Từ chối: không phê duyệt" bpmnType="endEvent">
+          <mxCell vertex="1" parent="TP" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.event;perimeter=ellipsePerimeter;aspect=fixed;outlineConnect=0;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=145;fontSize=12;spacingTop=8;outline=end;symbol=general;">
+            <mxGeometry x="1702" y="92" width="38" height="38" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="AND_S" label="Thực hiện đồng thời" bpmnType="parallelGateway">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.gateway2;perimeter=rhombusPerimeter;verticalLabelPosition=top;verticalAlign=bottom;labelWidth=150;spacingBottom=10;gwType=parallel;outline=none;symbol=none;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;spacingBottom=0;spacingRight=8;labelWidth=160;">
+            <mxGeometry x="1402" y="130" width="54" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="H3" label="Tìm kiếm&#10;nhà cung cấp" bpmnType="task">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=abstract;">
+            <mxGeometry x="1562" y="50" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="H4" label="Chuẩn bị hồ sơ&#10;đặt mua" bpmnType="task">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=abstract;">
+            <mxGeometry x="1562" y="280" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="AND_J" label="Chờ CẢ HAI hoàn tất" bpmnType="parallelGateway">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.gateway2;perimeter=rhombusPerimeter;verticalLabelPosition=top;verticalAlign=bottom;labelWidth=150;spacingBottom=10;gwType=parallel;outline=none;symbol=none;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;spacingBottom=0;spacingRight=8;labelWidth=160;">
+            <mxGeometry x="1852" y="130" width="54" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="H5" label="Gửi đơn đặt mua&#10;cho nhà cung cấp" bpmnType="sendTask">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=send;">
+            <mxGeometry x="1982" y="116" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="H6" label="Chờ xác nhận&#10;đơn đặt mua" bpmnType="receiveTask">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=receive;">
+            <mxGeometry x="2332" y="116" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="B48" label="Hạn: t₀ + 48 giờ" bpmnType="boundaryEvent" attachedToRef="H6" cancelActivity="true" timeDate="t_ncc_nhan + PT48H">
+          <mxCell vertex="1" parent="H6" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.event;perimeter=ellipsePerimeter;aspect=fixed;outlineConnect=0;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=145;fontSize=12;spacingTop=8;outline=boundInt;symbol=timer;labelPosition=left;align=right;labelWidth=140;spacingRight=150;spacingTop=22;">
+            <mxGeometry x="27" y="65" width="34" height="34" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="CANCEL" label="Hủy đơn mua và&#10;thông báo nhân viên" bpmnType="task">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=abstract;">
+            <mxGeometry x="1982" y="290" width="240" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="EC" label="Đơn mua đã hủy&#10;quá hạn xác nhận" bpmnType="endEvent">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.event;perimeter=ellipsePerimeter;aspect=fixed;outlineConnect=0;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=145;fontSize=12;spacingTop=8;outline=end;symbol=general;">
+            <mxGeometry x="2292" y="312" width="38" height="38" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="H7" label="Nhận thông tin bàn giao&#10;thiết bị / thiết bị thay thế" bpmnType="receiveTask">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=receive;">
+            <mxGeometry x="2332" y="450" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="H8" label="Tiếp nhận và&#10;kiểm tra thiết bị" bpmnType="manualTask">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=manual;">
+            <mxGeometry x="1992" y="450" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="G4" label="Thiết bị đạt yêu cầu?" bpmnType="exclusiveGateway">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.gateway2;perimeter=rhombusPerimeter;verticalLabelPosition=top;verticalAlign=bottom;labelWidth=150;spacingBottom=10;gwType=exclusive;outline=none;symbol=none;">
+            <mxGeometry x="1802" y="464" width="54" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="H9" label="Gửi trả thiết bị&#10;và yêu cầu thay thế" bpmnType="task">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=abstract;">
+            <mxGeometry x="1992" y="580" width="240" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="H10" label="Bàn giao thiết bị&#10;cho nhân viên" bpmnType="manualTask">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=manual;">
+            <mxGeometry x="1492" y="450" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="N3" label="Xác nhận đã&#10;nhận thiết bị" bpmnType="task">
+          <mxCell vertex="1" parent="NV" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=abstract;">
+            <mxGeometry x="1492" y="88" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="H11" label="Cập nhật yêu cầu:&#10;HOÀN THÀNH" bpmnType="task">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.task2;rectStyle=rounded;arcSize=10;container=1;collapsible=0;spacingTop=8;taskMarker=abstract;">
+            <mxGeometry x="1122" y="450" width="220" height="82" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="E" label="Yêu cầu hoàn thành" bpmnType="endEvent">
+          <mxCell vertex="1" parent="HC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;shape=mxgraph.bpmn.event;perimeter=ellipsePerimeter;aspect=fixed;outlineConnect=0;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=145;fontSize=12;spacingTop=8;outline=end;symbol=general;">
+            <mxGeometry x="942" y="472" width="38" height="38" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="F01" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="NV" source="S" target="N1" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F02" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="DN" source="N1" target="H1" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="347.5" y="637" />
+              </Array>
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F03" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="H1" target="G1" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F04" label="Chưa đầy đủ" bpmnType="sequenceFlow" conditionExpression="not information_complete">
+          <mxCell edge="1" parent="DN" source="G1" target="N2" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="737" y="270" />
+                <mxPoint x="730" y="270" />
+              </Array>
+              <mxPoint x="90" y="0" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F05" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="DN" source="N2" target="H1" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=0.5;entryY=0;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="550" y="129" />
+                <mxPoint x="550" y="540" />
+                <mxPoint x="530" y="540" />
+              </Array>
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F06" label="Đầy đủ" bpmnType="sequenceFlow" conditionExpression="information_complete">
+          <mxCell edge="1" parent="HC" source="G1" target="H2" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F07" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="H2" target="G2" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F08" label="Không đủ" bpmnType="sequenceFlow" conditionExpression="not budget_sufficient">
+          <mxCell edge="1" parent="HC" source="G2" target="R1" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=1;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1129" y="331" />
+              </Array>
+              <mxPoint x="70" y="0" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F09" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="R1" target="ER1" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F10" label="Đủ ngân sách" bpmnType="sequenceFlow" conditionExpression="budget_sufficient">
+          <mxCell edge="1" parent="DN" source="G2" target="T1" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1177" y="510" />
+                <mxPoint x="1237.5" y="510" />
+              </Array>
+              <mxPoint x="90" y="0" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F11" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="TP" source="T1" target="G3" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F12" label="Không" bpmnType="sequenceFlow" conditionExpression="not approved">
+          <mxCell edge="1" parent="TP" source="G3" target="ER2" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F13" label="Có" bpmnType="sequenceFlow" conditionExpression="approved">
+          <mxCell edge="1" parent="DN" source="G3" target="AND_S" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1467" y="510" />
+                <mxPoint x="1477" y="510" />
+              </Array>
+              <mxPoint x="35" y="0" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F14" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="AND_S" target="H3" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1429" y="91" />
+              </Array>
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F15" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="AND_S" target="H4" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1429" y="321" />
+              </Array>
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F16" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="H3" target="AND_J" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1879" y="91" />
+              </Array>
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F17" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="H4" target="AND_J" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=1;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1879" y="321" />
+              </Array>
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F18" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="AND_J" target="H5" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F19" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="H5" target="H6" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F20" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="B48" target="CANCEL" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2376" y="260" />
+                <mxPoint x="2102" y="260" />
+              </Array>
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F21" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="CANCEL" target="EC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F22" label="Đã xác nhận đúng hạn" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="H6" target="H7" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="70" y="0" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F23" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="H7" target="H8" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F24" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="H8" target="G4" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F25" label="Không đạt" bpmnType="sequenceFlow" conditionExpression="not equipment_ok">
+          <mxCell edge="1" parent="HC" source="G4" target="H9" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1829" y="550" />
+                <mxPoint x="2112" y="550" />
+              </Array>
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F26" label="Chờ thiết bị thay thế" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="H9" target="H7" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=1;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2582" y="621" />
+                <mxPoint x="2582" y="491" />
+              </Array>
+              <mxPoint x="-150" y="0" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F27" label="Đạt" bpmnType="sequenceFlow" conditionExpression="equipment_ok">
+          <mxCell edge="1" parent="HC" source="G4" target="H10" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F28" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="DN" source="H10" target="N3" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=0.5;entryY=1;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1520" y="971" />
+                <mxPoint x="1520" y="210" />
+                <mxPoint x="1650" y="210" />
+              </Array>
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F29" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="DN" source="N3" target="H11" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1985" y="129" />
+                <mxPoint x="1985" y="890" />
+                <mxPoint x="1280" y="890" />
+              </Array>
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="F30" label="" bpmnType="sequenceFlow">
+          <mxCell edge="1" parent="HC" source="H11" target="E" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;dashed=0;endArrow=blockThin;endFill=1;endSize=8;startArrow=none;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="0" y="-14" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="M01" label="Đơn đặt mua" bpmnType="messageFlow">
+          <mxCell edge="1" parent="1" source="H5" target="NCC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.17424242424242425;entryY=0;dashed=1;dashPattern=8 5;startArrow=oval;startFill=0;endArrow=blockThin;endFill=0;startSize=5;endSize=9;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2180" y="815" />
+                <mxPoint x="2330" y="815" />
+                <mxPoint x="2330" y="1350" />
+                <mxPoint x="500" y="1350" />
+              </Array>
+              <mxPoint x="0" y="15" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="M02" label="Xác nhận đơn" bpmnType="messageFlow">
+          <mxCell edge="1" parent="1" source="NCC" target="H6" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=1;entryY=0.5;dashed=1;dashPattern=8 5;startArrow=oval;startFill=0;endArrow=blockThin;endFill=0;startSize=5;endSize=9;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2720" y="1425" />
+                <mxPoint x="2720" y="747" />
+              </Array>
+              <mxPoint x="-85" y="-210" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="M03" label="Thông tin bàn giao / giao thay thế" bpmnType="messageFlow">
+          <mxCell edge="1" parent="1" source="NCC" target="H7" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.9431818181818182;exitY=0;entryX=0.5;entryY=1;dashed=1;dashPattern=8 5;startArrow=oval;startFill=0;endArrow=blockThin;endFill=0;startSize=5;endSize=9;">
+            <mxGeometry relative="1" as="geometry" x="-0.55">
+              <Array as="points">
+                <mxPoint x="2530" y="1320" />
+              </Array>
+              <mxPoint x="0" y="0" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="M04" label="Yêu cầu thay thế + kết quả kiểm tra" bpmnType="messageFlow">
+          <mxCell edge="1" parent="1" source="H9" target="NCC" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;edgeStyle=none;rounded=0;whiteSpace=nowrap;fontSize=12;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.8181818181818182;entryY=0;dashed=1;dashPattern=8 5;startArrow=oval;startFill=0;endArrow=blockThin;endFill=0;startSize=5;endSize=9;">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="-155" y="0" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="N_TIME" label="t₀ = thời điểm nhà cung cấp nhận đơn. Timer dùng hạn tuyệt đối t₀ + 48 giờ; không tính từ lúc nhân viên gửi yêu cầu." bpmnType="text">
+          <mxCell vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=16;">
+            <mxGeometry x="120" y="1480" width="2500" height="30" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="N_LEGEND" label="Nét liền: sequence trong doanh nghiệp, được qua lane. Nét đứt: message với nhà cung cấp, không biểu diễn vận chuyển vật phẩm." bpmnType="text">
+          <mxCell vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#172b42;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=16;">
+            <mxGeometry x="120" y="1520" width="2500" height="30" as="geometry" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
