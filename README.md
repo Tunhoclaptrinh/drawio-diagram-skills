@@ -12,7 +12,17 @@ Bộ skill giúp AI agent (Claude Code và các agent đọc định dạng `SKI
 
 Mỗi skill nằm trong `skills/<tên>/`, có phiên bản, test và gói ZIP riêng. Các loại sơ đồ khác (ví dụ UML, ERD, C4) là **hướng mở rộng chưa triển khai**; khi thêm sẽ theo cùng cấu trúc `skills/<loai>-drawio/`.
 
-Ví dụ đầu ra: [Mượn sách liên thư viện](examples/bpmn/muon-sach-lien-thu-vien/README.md).
+## Tài liệu
+
+| Tài liệu | Nội dung |
+|---|---|
+| [Hướng dẫn sử dụng](docs/huong-dan-su-dung.md) | Cài đặt, câu lệnh mẫu cho agent, tự chạy công cụ, đọc báo cáo kiểm tra, lỗi bố cục có ảnh, theme, sự cố thường gặp |
+| [Ví dụ](examples/README.md) | Sơ đồ `.drawio` hai bản, ảnh PNG/SVG và giải thích nghiệp vụ |
+| [README skill bpmn-drawio](skills/bpmn-drawio/README.md) · [SKILL.md](skills/bpmn-drawio/SKILL.md) | Nguyên tắc thiết kế, thành phần, nguồn tham khảo; điểm vào cho agent |
+| [Quy tắc BPMN](skills/bpmn-drawio/references/bpmn-rules.md) · [Phạm vi hỗ trợ](skills/bpmn-drawio/references/coverage.md) | Ma trận event theo vị trí, kết nối; những gì được kiểm tự động và phải rà tay |
+| [Đóng góp](CONTRIBUTING.md) · [CHANGELOG](CHANGELOG.md) | Báo lỗi, thêm luật, thêm skill cho loại sơ đồ khác; lịch sử phiên bản |
+
+Chuẩn BPMN được trích theo tên và liên kết tới bản công bố chính thức [OMG BPMN 2.0.2](https://www.omg.org/spec/BPMN/2.0.2/PDF); repo không đính kèm PDF của OMG.
 
 ![Ví dụ BPMN mượn sách liên thư viện, bản màu](examples/bpmn/muon-sach-lien-thu-vien/color/01-muon-sach-lien-thu-vien.png)
 

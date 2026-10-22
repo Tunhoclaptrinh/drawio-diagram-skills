@@ -1,0 +1,588 @@
+{
+  "sourceSha256": "88b8f7b08da72621144315350f0966c1a1cc65a3a4e1e953fe156ff1b8ba23aa",
+  "testScriptSha256": "2cdd515024574377a956da08d4954816a89ba6245b1ea9ddd63a8fe7334f6b96",
+  "checkerSha256": {
+    "drawio_common.py": "7a3cbee290a9fbdf0bcccb7a0d039e141912a0ae69eb2c48090a0f7c3a90f706",
+    "colorize_drawio.py": "f1a528b2a9ddbef36863549245eeafbf2e7e7f6a55a72d687aa115281f99deec",
+    "notation_rules.py": "83631aa20ca3388fe0bf2ab098c52aefd7a1bb36968ba3fc649a5482e31d9503",
+    "audit_drawio.py": "27e3f182053c3a8d1ce41a3c1763dde5d86c9e1a13f2db14f3953a812a72326a",
+    "bpmn_builder.py": "8b40d7d8518d7e62a70568708852a63e0801d2e4f005fdcb3280546fee03f357",
+    "render_drawio.py": "2fb6bb96f55ef399f18206abf39c1682fbe748d828fcc71160e9c03ac25d88d7"
+  },
+  "regression_count": 41,
+  "scenario_count": 8,
+  "all_passed": true,
+  "regressions": [
+    {
+      "case": "V01-valid-notation",
+      "expected_accept": true,
+      "observed_errors": [],
+      "passed": true
+    },
+    {
+      "case": "V02-valid-notation",
+      "expected_accept": true,
+      "observed_errors": [],
+      "passed": true
+    },
+    {
+      "case": "V03-valid-notation",
+      "expected_accept": true,
+      "observed_errors": [],
+      "passed": true
+    },
+    {
+      "case": "V04-valid-notation",
+      "expected_accept": true,
+      "observed_errors": [],
+      "passed": true
+    },
+    {
+      "case": "V05-valid-notation",
+      "expected_accept": true,
+      "observed_errors": [],
+      "passed": true
+    },
+    {
+      "case": "V06-valid-notation",
+      "expected_accept": true,
+      "observed_errors": [],
+      "passed": true
+    },
+    {
+      "case": "V07-valid-notation",
+      "expected_accept": true,
+      "observed_errors": [],
+      "passed": true
+    },
+    {
+      "case": "V08-valid-notation",
+      "expected_accept": true,
+      "observed_errors": [],
+      "passed": true
+    },
+    {
+      "case": "V09-valid-notation",
+      "expected_accept": true,
+      "observed_errors": [],
+      "passed": true
+    },
+    {
+      "case": "V10-valid-notation",
+      "expected_accept": true,
+      "observed_errors": [],
+      "passed": true
+    },
+    {
+      "case": "event-successor-service",
+      "expected_error_fragment": "invalid event-gateway successor",
+      "observed_errors": [
+        "RACE: invalid event-gateway successor MSG"
+      ],
+      "passed": true
+    },
+    {
+      "case": "event-mixed-receive-message",
+      "expected_error_fragment": "do not mix Receive",
+      "observed_errors": [
+        "RACE: do not mix Receive Tasks with Message catches in one event-gateway configuration"
+      ],
+      "passed": true
+    },
+    {
+      "case": "event-extra-incoming",
+      "observed_errors": [
+        "MSG: event-gateway successor has an additional incoming sequence"
+      ],
+      "passed": true
+    },
+    {
+      "case": "event-conditional-outgoing",
+      "expected_error_fragment": "conditions are not allowed",
+      "observed_errors": [
+        "RM: event race must not use conditions/default branches",
+        "RM: conditions are not allowed from AND/event-based gateways"
+      ],
+      "passed": true
+    },
+    {
+      "case": "error-noninterrupting",
+      "expected_error_fragment": "Error/Cancel/Compensation",
+      "observed_errors": [
+        "ERR: Error/Cancel/Compensation boundary must have solid rings"
+      ],
+      "passed": true
+    },
+    {
+      "case": "cancel-on-normal-subprocess",
+      "expected_error_fragment": "Cancel boundary requires",
+      "observed_errors": [
+        "TC: Cancel End requires a Transaction Sub-Process",
+        "BC: Cancel boundary requires a Transaction Sub-Process"
+      ],
+      "passed": true
+    },
+    {
+      "case": "cancel-end-outside-transaction",
+      "expected_error_fragment": "Cancel End requires",
+      "observed_errors": [
+        "EF: Cancel End requires a Transaction Sub-Process"
+      ],
+      "passed": true
+    },
+    {
+      "case": "compensation-as-sequence",
+      "expected_error_fragment": "compensation handler uses association",
+      "observed_errors": [
+        "COMP: compensation handler uses association, not sequence",
+        "COMP: compensation boundary needs one handler association",
+        "UNDO: compensation activity must be outside normal sequence flow"
+      ],
+      "passed": true
+    },
+    {
+      "case": "compensation-handler-unmarked",
+      "expected_error_fragment": "lacks compensation",
+      "observed_errors": [
+        "COMP: associated handler lacks compensation activity semantics/marker"
+      ],
+      "passed": true
+    },
+    {
+      "case": "compensation-dashed-boundary",
+      "expected_error_fragment": "must have solid rings",
+      "observed_errors": [
+        "COMP: Error/Cancel/Compensation boundary must have solid rings"
+      ],
+      "passed": true
+    },
+    {
+      "case": "event-subprocess-sequence-entry",
+      "expected_error_fragment": "event subprocess cannot",
+      "observed_errors": [
+        "ESP: event subprocess cannot have incoming/outgoing sequence flows"
+      ],
+      "passed": true
+    },
+    {
+      "case": "event-subprocess-none-start",
+      "expected_error_fragment": "needs exactly one triggered start",
+      "observed_errors": [
+        "CS: incoming message without a Message start marker",
+        "ESP: event subprocess needs exactly one triggered start"
+      ],
+      "passed": true
+    },
+    {
+      "case": "default-without-slash",
+      "expected_error_fragment": "default sequence needs a slash",
+      "observed_errors": [
+        "NO: default sequence needs a slash marker"
+      ],
+      "passed": true
+    },
+    {
+      "case": "default-with-condition",
+      "expected_error_fragment": "default flow must not carry",
+      "observed_errors": [
+        "NO: default flow must not carry a condition"
+      ],
+      "passed": true
+    },
+    {
+      "case": "gateway-condition-diamond",
+      "expected_error_fragment": "must not use an activity diamond",
+      "observed_errors": [
+        "YES: a gateway condition must not use an activity diamond marker"
+      ],
+      "passed": true
+    },
+    {
+      "case": "activity-condition-without-diamond",
+      "expected_error_fragment": "conditional flow from an activity",
+      "observed_errors": [
+        "F2: conditional flow from an activity needs an unfilled diamond",
+        "F2: conditional activity flow requires another outgoing sequence"
+      ],
+      "passed": true
+    },
+    {
+      "case": "and-condition",
+      "expected_error_fragment": "conditions are not allowed",
+      "observed_errors": [
+        "SA: conditions are not allowed from AND/event-based gateways"
+      ],
+      "passed": true
+    },
+    {
+      "case": "and-marker-xor",
+      "expected_error_fragment": "AND metadata contradicts",
+      "observed_errors": [
+        "JOIN: AND metadata contradicts its marker"
+      ],
+      "passed": true
+    },
+    {
+      "case": "inclusive-marker-xor",
+      "expected_error_fragment": "inclusive metadata contradicts",
+      "observed_errors": [
+        "JOIN: inclusive metadata contradicts its circle marker"
+      ],
+      "passed": true
+    },
+    {
+      "case": "message-outside-pool",
+      "expected_error_fragment": "separate explicit participants",
+      "observed_errors": [
+        "RM: sequence crosses participant pools",
+        "RM: sequence crosses subprocess scope (advanced boundary-end exceptions require separate review)",
+        "F3: sequence crosses participant pools",
+        "F3: sequence crosses subprocess scope (advanced boundary-end exceptions require separate review)",
+        "M2: message must connect separate explicit participants"
+      ],
+      "passed": true
+    },
+    {
+      "case": "ordinary-subprocess-triggered-start",
+      "expected_error_fragment": "ordinary embedded subprocess requires",
+      "observed_errors": [
+        "SS: ordinary embedded subprocess requires a None Start"
+      ],
+      "passed": true
+    },
+    {
+      "case": "noninterrupting-error-start",
+      "expected_error_fragment": "invalid event-subprocess start",
+      "observed_errors": [
+        "CS: incoming message without a Message start marker",
+        "CS: invalid event-subprocess start trigger/interrupting variant"
+      ],
+      "passed": true
+    },
+    {
+      "case": "solid-data-association",
+      "expected_error_fragment": "association needs dotted",
+      "observed_errors": [
+        "D1: association needs dotted stroke and optional open arrowheads"
+      ],
+      "passed": true
+    },
+    {
+      "case": "message-attached-to-data",
+      "expected_error_fragment": "message attached to dataObject",
+      "observed_errors": [
+        "RM: sequence endpoint is not a recognized flow object",
+        "F3: sequence endpoint is not a recognized flow object",
+        "M2: message attached to dataObject",
+        "RACE: invalid event-gateway successor MSG"
+      ],
+      "passed": true
+    },
+    {
+      "case": "unreachable-task-advisory",
+      "manual_review": [
+        "SPLIT: trace concurrent tokens and joins for each scenario",
+        "A: implicit start/end or incomplete branch; check the intended business outcome",
+        "JOIN: trace concurrent tokens and joins for each scenario",
+        "A: not reachable from declared starts/handlers; review implicit starts or missing flow"
+      ],
+      "passed": true
+    },
+    {
+      "case": "event-receive-and-timer-allowed",
+      "scope": "XML constraint fixture, not an additional complete rendered business example",
+      "observed_errors": [],
+      "passed": true
+    },
+    {
+      "case": "activity-conditional-diamonds-and-default-allowed",
+      "scope": "XML constraint fixture for implicit conditional branching; not a new rendered example",
+      "observed_errors": [],
+      "passed": true
+    },
+    {
+      "case": "boundary-geometric-attachment",
+      "scope": "Original rendered boxes plus synthetic coordinate mutation; no new mutant image",
+      "observed_errors": [
+        "REM: rendered boundary event does not intersect attached activity WORK's border"
+      ],
+      "passed": true
+    },
+    {
+      "case": "boundary-overlap-need-not-be-exactly-centered",
+      "passed": true
+    },
+    {
+      "case": "negative-control-xor-join-duplicates-completion",
+      "observed": {
+        "states": 23,
+        "final_counts": [
+          {
+            "S": 1,
+            "SPLIT": 1,
+            "A": 1,
+            "B": 1,
+            "JOIN": 2,
+            "DONE": 2,
+            "E": 2
+          }
+        ],
+        "dead_markings": []
+      },
+      "passed": true
+    },
+    {
+      "case": "negative-control-and-join-after-xor-deadlocks",
+      "observed": {
+        "states": 3,
+        "final_counts": [],
+        "dead_markings": [
+          {
+            "AJ": 1
+          }
+        ]
+      },
+      "passed": true
+    }
+  ],
+  "structured_token_scenarios": [
+    {
+      "scenario": "V01-approved",
+      "branch_choices": {
+        "G": [
+          [
+            "YES"
+          ]
+        ]
+      },
+      "expected_completion_counts": {
+        "TA": 1,
+        "TR": 0,
+        "T1": 1,
+        "EA": 1
+      },
+      "states": 6,
+      "final_counts": [
+        {
+          "S": 1,
+          "T1": 1,
+          "T2": 1,
+          "G": 1,
+          "TA": 1,
+          "EA": 1
+        }
+      ],
+      "dead_markings": [],
+      "passed": true
+    },
+    {
+      "scenario": "V01-rejected",
+      "branch_choices": {
+        "G": [
+          [
+            "NO"
+          ]
+        ]
+      },
+      "expected_completion_counts": {
+        "TA": 0,
+        "TR": 1,
+        "ER": 1
+      },
+      "states": 6,
+      "final_counts": [
+        {
+          "S": 1,
+          "T1": 1,
+          "T2": 1,
+          "G": 1,
+          "TR": 1,
+          "ER": 1
+        }
+      ],
+      "dead_markings": [],
+      "passed": true
+    },
+    {
+      "scenario": "V01-rework-then-approved",
+      "branch_choices": {
+        "G": [
+          [
+            "REWORK"
+          ],
+          [
+            "YES"
+          ]
+        ]
+      },
+      "expected_completion_counts": {
+        "T1": 2,
+        "T2": 2,
+        "TA": 1,
+        "EA": 1
+      },
+      "states": 9,
+      "final_counts": [
+        {
+          "S": 1,
+          "T1": 2,
+          "T2": 2,
+          "G": 2,
+          "TA": 1,
+          "EA": 1
+        }
+      ],
+      "dead_markings": [],
+      "passed": true
+    },
+    {
+      "scenario": "V02-both-orders-wait-for-both",
+      "branch_choices": {},
+      "expected_completion_counts": {
+        "A": 1,
+        "B": 1,
+        "DONE": 1,
+        "E": 1
+      },
+      "states": 8,
+      "final_counts": [
+        {
+          "S": 1,
+          "SPLIT": 1,
+          "A": 1,
+          "B": 1,
+          "JOIN": 1,
+          "DONE": 1,
+          "E": 1
+        }
+      ],
+      "dead_markings": [],
+      "passed": true
+    },
+    {
+      "scenario": "V03-email-False-paper-False",
+      "branch_choices": {
+        "SPLIT": [
+          []
+        ]
+      },
+      "expected_completion_counts": {
+        "A": 0,
+        "B": 0,
+        "DONE": 1,
+        "E": 1
+      },
+      "states": 6,
+      "final_counts": [
+        {
+          "S": 1,
+          "READ": 1,
+          "SPLIT": 1,
+          "JOIN": 1,
+          "DONE": 1,
+          "E": 1
+        }
+      ],
+      "dead_markings": [],
+      "passed": true
+    },
+    {
+      "scenario": "V03-email-True-paper-False",
+      "branch_choices": {
+        "SPLIT": [
+          [
+            "SA"
+          ]
+        ]
+      },
+      "expected_completion_counts": {
+        "A": 1,
+        "B": 0,
+        "DONE": 1,
+        "E": 1
+      },
+      "states": 7,
+      "final_counts": [
+        {
+          "S": 1,
+          "READ": 1,
+          "SPLIT": 1,
+          "A": 1,
+          "JOIN": 1,
+          "DONE": 1,
+          "E": 1
+        }
+      ],
+      "dead_markings": [],
+      "passed": true
+    },
+    {
+      "scenario": "V03-email-False-paper-True",
+      "branch_choices": {
+        "SPLIT": [
+          [
+            "SB"
+          ]
+        ]
+      },
+      "expected_completion_counts": {
+        "A": 0,
+        "B": 1,
+        "DONE": 1,
+        "E": 1
+      },
+      "states": 7,
+      "final_counts": [
+        {
+          "S": 1,
+          "READ": 1,
+          "SPLIT": 1,
+          "B": 1,
+          "JOIN": 1,
+          "DONE": 1,
+          "E": 1
+        }
+      ],
+      "dead_markings": [],
+      "passed": true
+    },
+    {
+      "scenario": "V03-email-True-paper-True",
+      "branch_choices": {
+        "SPLIT": [
+          [
+            "SA",
+            "SB"
+          ]
+        ]
+      },
+      "expected_completion_counts": {
+        "A": 1,
+        "B": 1,
+        "DONE": 1,
+        "E": 1
+      },
+      "states": 9,
+      "final_counts": [
+        {
+          "S": 1,
+          "READ": 1,
+          "SPLIT": 1,
+          "A": 1,
+          "B": 1,
+          "JOIN": 1,
+          "DONE": 1,
+          "E": 1
+        }
+      ],
+      "dead_markings": [],
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Synthetic independent business requirements; not stakeholder approval",
+    "V01--V03 only: bounded structured token checks with declared branch selections",
+    "No expression evaluation, clock/message simulation, transaction execution or general inclusive-join proof",
+    "V04--V10 require documented manual scenario review in addition to notation/render checks"
+  ]
+}

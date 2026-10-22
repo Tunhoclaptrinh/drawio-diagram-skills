@@ -162,7 +162,7 @@ Khuyến nghị: hoàn tất v1.0 Process/Collaboration trước; nếu cần m�
 
 ## 9. Việc còn lại trước khi xuất bản
 
-1. ~~License và tác giả~~ — đã chốt Apache-2.0, Copyright 2026 Tunhoclaptrinh. Còn lại: **chủ dự án chọn kênh phát hành** (GitHub release, marketplace…); chưa có bước phát hành nào được tự thực hiện.
+1. ~~License và tác giả~~ — đã chốt Apache-2.0, Copyright 2026 Tunhoclaptrinh. Kênh phát hành đã chọn: repo công khai **`drawio-diagram-skills`** trên GitHub, mỗi skill một thư mục `skills/<tên>/`, tag `<skill>-v<phiên bản>`, bản `-rc` là pre-release. Việc push và tạo release do chủ dự án thực hiện.
 2. Chạy CI từ xa ít nhất một lần (Python 3.10/3.12/3.14, job render thủ công) và lưu link kết quả; hiện chỉ có cấu hình.
 3. Thử thực tế trên Windows và macOS (doctor, render, PDF, smoke ZIP) hoặc ghi rõ chỉ hỗ trợ Linux.
 4. Một lượt forward-test độc lập (người/agent khác) có đọc ảnh, dùng đề mới; rc.2 là tự rà của cùng tác giả.
