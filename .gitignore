@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.bpmn-runtime/
+output/
+dist/
+drawio/

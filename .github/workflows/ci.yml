@@ -1,0 +1,45 @@
+name: Skills
+on:
+  push:
+    paths: ['skills/**', '.github/workflows/**']
+  pull_request:
+    paths: ['skills/**', '.github/workflows/**']
+  workflow_dispatch:
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.10', '3.12', '3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '${{ matrix.python }}'
+      - run: python -B skills/bpmn-drawio/scripts/run_checks.py
+      - run: python -B skills/bpmn-drawio/scripts/package_skill.py --output-dir /tmp/candidate
+      - name: Smoke test the extracted ZIP
+        run: python -B skills/bpmn-drawio/scripts/smoke_package.py /tmp/candidate/bpmn-drawio-$(cat skills/bpmn-drawio/VERSION)-candidate.zip --report /tmp/candidate/smoke.json
+  render:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch pinned draw.io source
+        run: |
+          git clone --filter=blob:none https://github.com/jgraph/drawio.git /tmp/drawio
+          git -C /tmp/drawio checkout 17b367b91dbab91804f852645788d7ffb46dcb79
+      - run: python -B skills/bpmn-drawio/scripts/run_checks.py --render --drawio-root /tmp/drawio --output-dir /tmp/render --report /tmp/render/checks.json
+      - run: python -B skills/bpmn-drawio/scripts/package_skill.py --output-dir /tmp/candidate
+      - name: Render the demo from the extracted ZIP
+        run: python -B skills/bpmn-drawio/scripts/smoke_package.py /tmp/candidate/bpmn-drawio-$(cat skills/bpmn-drawio/VERSION)-candidate.zip --drawio-root /tmp/drawio --report /tmp/candidate/smoke-render.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: render-evidence
+          path: |
+            /tmp/render/checks.json
+            /tmp/candidate/smoke-render.json
