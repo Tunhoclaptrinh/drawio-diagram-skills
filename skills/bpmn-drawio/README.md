@@ -31,7 +31,7 @@ Skill hướng tới Process và Collaboration trước. Choreography, Conversat
 | `scripts/package_skill.py`, `scripts/smoke_package.py` | Đóng ZIP ứng viên; giải nén ở thư mục mới và chạy lại |
 | `scripts/colorize_drawio.py` | Tạo bản có màu theo loại phần tử |
 | `scripts/drawio_common.py` | Đọc trang, giải nén, suy luận hình và so sánh mô hình |
-| [Ví dụ thường](assets/Bo_vi_du_BPMN.drawio) · [Ví dụ màu](assets/Bo_vi_du_BPMN_Co_mau.drawio) | 10 trang ví dụ tự đặt, không phải mẫu nghiệp vụ bắt buộc |
+| [Ví dụ thường](assets/bpmn-patterns.drawio) · [Ví dụ màu](assets/bpmn-patterns-color.drawio) | 10 trang ví dụ tự đặt, không phải mẫu nghiệp vụ bắt buộc |
 
 ## Màu và ký hiệu
 

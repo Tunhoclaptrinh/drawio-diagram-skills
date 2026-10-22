@@ -158,7 +158,7 @@ class Portability(unittest.TestCase):
         svg='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><text>Text is not SVG - business label</text><switch><g/><a xlink:href="https://www.drawio.com/doc/faq/svg-export-text-problems"><text>Text is not SVG - cannot display</text></a></switch></svg>'
         result=portable_svg(svg);self.assertNotIn('cannot display',result);self.assertIn('business label',result)
     def test_all_bundled_patterns_audit(self):
-        normal=pages(SKILL/'assets/Bo_vi_du_BPMN.drawio');color=pages(SKILL/'assets/Bo_vi_du_BPMN_Co_mau.drawio')
+        normal=pages(SKILL/'assets/bpmn-patterns.drawio');color=pages(SKILL/'assets/bpmn-patterns-color.drawio')
         self.assertEqual(len(normal),10)
         for n,c in zip(normal,color):
             self.assertEqual(audit_page(n,None,None,'test')['errors'],[])

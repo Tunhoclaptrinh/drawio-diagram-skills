@@ -1,8 +1,8 @@
 # Independent BPMN process patterns
 
 Use these to review a required construct, not to copy example policies into a new
-assignment. Editable native shapes are in [normal examples](../assets/Bo_vi_du_BPMN.drawio)
-and [colored examples](../assets/Bo_vi_du_BPMN_Co_mau.drawio). Each of ten tabs is an
+assignment. Editable native shapes are in [normal examples](../assets/bpmn-patterns.drawio)
+and [colored examples](../assets/bpmn-patterns-color.drawio). Each of ten tabs is an
 independent synthetic requirement. These are visual `.drawio` models, not engine XML.
 The editable assets are self-contained. Render them with the supplied helpers;
 scenario obligations below support manual review, not engine simulation.

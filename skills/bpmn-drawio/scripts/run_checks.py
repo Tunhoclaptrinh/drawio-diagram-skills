@@ -23,8 +23,8 @@ def integration(args):
     execute(SKILL/'scripts/create_demo.py','--output-dir',output/'demo')
     jobs=[(output/'demo/Demo.drawio','demo-normal','monochrome',None),
           (output/'demo/Demo_Co_mau.drawio','demo-color','bizagi-inspired',output/'demo/Demo.drawio'),
-          (SKILL/'assets/Bo_vi_du_BPMN.drawio','patterns-normal',None,None),
-          (SKILL/'assets/Bo_vi_du_BPMN_Co_mau.drawio','patterns-color','tool-convention',SKILL/'assets/Bo_vi_du_BPMN.drawio')]
+          (SKILL/'assets/bpmn-patterns.drawio','patterns-normal',None,None),
+          (SKILL/'assets/bpmn-patterns-color.drawio','patterns-color','tool-convention',SKILL/'assets/bpmn-patterns.drawio')]
     results=[]
     for source,name,palette,baseline in jobs:
         folder=output/name
